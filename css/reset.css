@@ -38,3 +38,11 @@ h6 {
 img {
   width: 100%;
 }
+
+form,
+input,
+label {
+  border: none;
+  appearance: none;
+  background: none;
+}

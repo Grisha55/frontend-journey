@@ -16,10 +16,14 @@
 }
 
 .footer__info {
-
+  display: grid;
+  gap: 10px;
 }
 
-/* .footer__logo {} */
+.footer__logo {
+  width: 216px;
+  height: 24px;
+}
 
 /* .footer__copy {} */
 

@@ -1,14 +1,16 @@
-.column {
-  
-}
+/* .column {} */
 
 .column img {
   width: 40px;
   height: 40px;
 }
 
-/* .column__title {} */
+.column__title {
+  margin-bottom: 20px;
+}
 
 /* .column__list {} */
 
-/* .column__item {} */
+.column__item {
+  margin-bottom: 10px;
+}

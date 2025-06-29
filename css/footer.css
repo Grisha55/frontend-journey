@@ -25,6 +25,14 @@
   height: 24px;
 }
 
-/* .footer__copy {} */
+.footer__copy {
+  font-size: 12px;
+}
 
-/* .footer__dev {} */
+.footer__dev {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 160px;
+  height: 60px;
+}

@@ -11,8 +11,6 @@
 /* .warranty__text-block {} */
 
 .warranty__title {
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
   font-size: 26px;
   margin-bottom: 20px;
 }
@@ -22,6 +20,7 @@
 }
 
 .warranty__copy {
+  font-family: "Nunito", sans-serif;
   margin-top: 10px;
 }
 

@@ -1,18 +1,22 @@
 /* .column {} */
 
 .column img {
+  display: block;
   width: 40px;
   height: 40px;
 }
 
 .column__title {
+  font-family: "Nunito", sans-serif;
   font-size: 16px;
-  margin-bottom: 20px;
 }
 
-/* .column__list {} */
+.column__list {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  margin-top: 20px;
+}
 
 .column__item {
-  font-size: 14px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }

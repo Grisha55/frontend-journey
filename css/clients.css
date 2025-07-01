@@ -1,10 +1,8 @@
 .clients {
-  border: 2px solid red;
   padding: 30px 15px;
 }
 
 .clients__wrapper {
-  border: 2px solid blue;
   display: grid;
   gap: 30px;
 }

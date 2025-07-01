@@ -12,6 +12,7 @@
 
 .warranty__title {
   font-size: 26px;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -20,7 +21,7 @@
 }
 
 .warranty__copy {
-  font-family: "Nunito", sans-serif;
+  font-weight: 400;
   margin-top: 10px;
 }
 

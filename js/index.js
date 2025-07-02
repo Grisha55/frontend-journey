@@ -32,4 +32,4 @@ console.log($care);
 console.log($cashback);
 console.log($clients);
 console.log($footer);
-console.log($header)
+console.log($header);

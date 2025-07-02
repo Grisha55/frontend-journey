@@ -10,6 +10,11 @@ import { Care } from '/js/components/Care.js';
 const $care = document.querySelector('#care');
 $care.insertAdjacentHTML('beforeend', Care());
 
+import { Cashback } from '/js/components/Cashback.js';
+const $cashback = document.querySelector('#cashback');
+$cashback.insertAdjacentHTML('beforeend', Cashback());
+
 console.log($warranty);
 console.log($download);
 console.log($care);
+console.log($cashback);

@@ -26,6 +26,10 @@ import { Header } from '/js/components/Header.js';
 const $header = document.querySelector('#header');
 $header.insertAdjacentHTML('beforeend', Header());
 
+import { Modal } from '/js/components/Modal.js';
+const $modal = document.querySelector('#modal');
+$modal.insertAdjacentHTML('beforeend', Modal());
+
 console.log($warranty);
 console.log($download);
 console.log($care);
@@ -33,3 +37,4 @@ console.log($cashback);
 console.log($clients);
 console.log($footer);
 console.log($header);
+console.log($modal);

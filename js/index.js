@@ -22,4 +22,4 @@ console.log($warranty);
 console.log($download);
 console.log($care);
 console.log($cashback);
-console.log($clients)
+console.log($clients);

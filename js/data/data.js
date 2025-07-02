@@ -63,7 +63,7 @@ export const data = {
     },
   },
   warranty: {
-    name: "warranty",
+    key: "warranty",
     title: {
       value: "1-year warranty boost",
       priority: 2,

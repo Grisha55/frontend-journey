@@ -18,8 +18,13 @@ import { Clients } from '/js/components/Clients.js';
 const $clients = document.querySelector('#clients');
 $clients.insertAdjacentHTML('beforeend', Clients());
 
+import { Footer } from '/js/components/Footer.js';
+const $footer = document.querySelector('#footer');
+$footer.insertAdjacentHTML('beforeend', Footer());
+
 console.log($warranty);
 console.log($download);
 console.log($care);
 console.log($cashback);
 console.log($clients);
+console.log($footer);

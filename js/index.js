@@ -22,9 +22,14 @@ import { Footer } from '/js/components/Footer.js';
 const $footer = document.querySelector('#footer');
 $footer.insertAdjacentHTML('beforeend', Footer());
 
+import { Header } from '/js/components/Header.js';
+const $header = document.querySelector('#header');
+$header.insertAdjacentHTML('beforeend', Header());
+
 console.log($warranty);
 console.log($download);
 console.log($care);
 console.log($cashback);
 console.log($clients);
 console.log($footer);
+console.log($header)

@@ -8,7 +8,7 @@ export const Download = (data) => {
           <h1 class="download__title">${data.title}</h1>
           <p class="data">${data.text}</p>
           <div class="download__links">
-            <a class="download__link" href="https://apple.com">
+            <a class="download__link" href="${data.image.source}">
               <img src="${data.image.source}" alt="${data.image.description}">
             </a>
             <a class="download__link" href="${data.image.source}">

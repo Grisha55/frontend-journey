@@ -28,6 +28,67 @@ export const data = {
           },
         ],
       },
+      {
+        name: "Discover",
+        links: [
+          {
+            name: "For developers",
+            url: "https://example.com",
+          },
+          {
+            name: "Apple Pay",
+            url: "https://example.com",
+          },
+          {
+            name: "Google Pay",
+            url: "https://example.com",
+          },
+        ],
+      },
+      {
+        name: "Offer",
+        links: [
+          {
+            name: "Business",
+            url: "https://example.com",
+          },
+          {
+            name: "Personal",
+            url: "https://example.com",
+          },
+        ],
+      },
+      {
+        name: "Language",
+        links: [
+          {
+            name: "English",
+            url: "https://example.com",
+          },
+          {
+            name: "Polish",
+            url: "https://example.com",
+          },
+        ],
+      },
+      {
+        name: "Follow us",
+        links: [
+          {
+            name: "",
+            url: "https://example.com",
+          },
+        ],
+      },
+      {
+        name: "Contact",
+        links: [
+          {
+            name: "hello@zen.com",
+            url: "hello@zen.com",
+          },
+        ],
+      },
     ],
     details: [
       "ZEN is a licensed financial institution under the supervision of the Central Bank of Lithuania approved by European Banking Authority for 31 countries.",

@@ -13,5 +13,5 @@ export const Care = (data) => {
         </div>
       </div>
     </section>
-  `
-}
+  `;
+};

@@ -58,7 +58,7 @@ export const data = {
       },
     ],
     image: {
-      source: "http://localhost:127.0.0.1:3000/assets/images/1.jpg",
+      source: "/assets/images/1.jpg",
       description: "image 1",
     },
   },

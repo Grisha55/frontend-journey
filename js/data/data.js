@@ -1,4 +1,63 @@
 export const data = {
+  header: {
+    // Логотип
+    logo: {
+      type: "button",
+      id: "logo",
+      img: {
+        src: "assets/icons/logo.svg",
+        alt: "ZEN",
+      },
+    },
+
+    // Навигационное меню
+    nav: {
+      menu: {
+        id: "menu",
+        items: [
+          { href: "#download", text: "Download" },
+          { href: "#warranty", text: "Warranty" },
+          { href: "#care", text: "Care" },
+          { href: "#cashback", text: "Cashback" },
+          { href: "#clients", text: "Clients" },
+        ],
+      },
+    },
+
+    // Блок действий (язык, тема, бургер)
+    actions: {
+      // Языковой переключатель
+      lang: {
+        arrow: {
+          src: "assets/icons/arrow.svg",
+          alt: "",
+        },
+        select: {
+          id: "lang",
+          options: [
+            { value: "en", text: "EN" },
+            { value: "ru", text: "RU" },
+          ],
+        },
+      },
+
+      // Кнопка темы
+      theme: {
+        type: "button",
+        id: "theme",
+        img: {
+          src: "assets/icons/moon.svg",
+          alt: "Moon",
+        },
+      },
+
+      // Бургер-меню
+      burger: {
+        type: "button",
+        id: "burger",
+      },
+    },
+  },
   meta: {
     key: "meta",
     sections: ["download", "warranty", "care", "cashback", "clients"],

@@ -3,14 +3,14 @@ type Title = {
   priority: number;
 };
 
-type Image = {
-  source: string;
-  description: string;
+type ButtonProps = {
+  text: string;
+  type: string;
 };
 
-export type Care = {
+export type Cashback = {
   key: string;
   title: Title;
   texts: string[];
-  image: Image;
+  button: ButtonProps;
 };

@@ -106,7 +106,7 @@ export const data = {
     ],
     button: {
       text: "Order a consultation",
-      type: "button"
+      type: "button",
     },
     clients: {
       key: "clients",

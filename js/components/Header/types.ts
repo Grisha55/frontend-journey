@@ -56,7 +56,7 @@ type ThemeButton = {
 // Burger button interface
 type BurgerButton = {
   id: string;
-  type: string
+  type: string;
 };
 
 // Header actions interface

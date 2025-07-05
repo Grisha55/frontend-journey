@@ -14,7 +14,7 @@ type Image = {
 };
 
 type Client = {
-  images: Image[],
+  images: Image[];
 }
 
 export type Cashback = {

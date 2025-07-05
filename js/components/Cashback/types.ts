@@ -8,9 +8,19 @@ type ButtonProps = {
   type: string;
 };
 
+type Image = {
+  source: string,
+  description: string;
+};
+
+type Client = {
+  images: Image[],
+}
+
 export type Cashback = {
   key: string;
   title: Title;
   texts: string[];
   button: ButtonProps;
+  clients: Client;
 };

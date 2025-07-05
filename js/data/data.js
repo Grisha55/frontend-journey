@@ -104,6 +104,10 @@ export const data = {
       "We gave it a thought and made cashback way more friendly.",
       "Up to 14% of what you spend using ZEN Mastercard ® will materialize on your account right after the purchase.",
     ],
+    button: {
+      text: "Order a consultation",
+      type: "button",
+    },
     clients: {
       key: "clients",
       images: [

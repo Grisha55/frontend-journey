@@ -1,3 +1,14 @@
+/**
+ * @typedef {import('./types').Modal} Modal
+ */
+
+/**
+ * @function Modal
+ * @description Large UI component
+ * @param {Modal} data 
+ * @returns {string} HTML or empty
+ */
+
 export const Modal = (data) => {
   if (!data) return '';
 

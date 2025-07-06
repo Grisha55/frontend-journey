@@ -4,6 +4,7 @@ import { Warranty } from './components/Warranty/Warranty.js';
 import { Care } from './components/Care/Care.js';
 import { Cashback } from './components/Cashback/Cashback.js';
 import { Header } from './components/Header/Header.js';
+import { Footer } from './components/Footer/Footer.js';
 
 const $root = document.getElementById('root');
 
@@ -13,4 +14,5 @@ if ($root) {
   $root.insertAdjacentHTML('beforeend', Care(data.care));
   $root.insertAdjacentHTML('beforeend', Cashback(data.cashback));
   $root.insertAdjacentHTML('beforeend', Header(data.header));
+  $root.insertAdjacentHTML('beforeend', Footer(data.footer));
 }

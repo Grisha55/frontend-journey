@@ -1,6 +1,6 @@
 /**
  * @typedef {import('../components/Footer/types').Footer} Footer
- * @typedef {import('../components/Modal/types').Modal}
+ * @typedef {import('../components/Modal/types').Modal} Modal
  */
 
 export const data = {

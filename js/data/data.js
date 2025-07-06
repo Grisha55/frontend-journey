@@ -1,3 +1,7 @@
+/**
+ * @typedef {import('../components/Footer/types').Footer} Footer
+ */
+
 export const data = {
   header: {
     // Логотип
@@ -205,4 +209,78 @@ export const data = {
       ],
     },
   },
+  footer: /** @type {Footer} */ ({
+    logo: {
+      src: "assets/icons/logo2.svg",
+      alt: "logo",
+      url: "https://example.com",
+    },
+    columns: [
+      {
+        type: "default",
+        title: "Learn",
+        links: [
+          { text: "Help center", url: "https://example.com" },
+          { text: "Join ZEN team", url: "https://example.com" },
+          { text: "Privacy Policy", url: "https://example.com" },
+          { text: "Cookies", url: "https://example.com" },
+          { text: "Terms of use", url: "https://example.com" },
+        ],
+      },
+      {
+        type: "default",
+        title: "Discover",
+        links: [
+          { text: "For developers", url: "https://example.com" },
+          { text: "Apple Pay", url: "https://example.com" },
+          { text: "Google Pay", url: "https://example.com" },
+        ],
+      },
+      {
+        type: "default",
+        title: "Offer",
+        links: [
+          { text: "Business", url: "https://example.com" },
+          { text: "Personal", url: "https://example.com" },
+        ],
+      },
+      {
+        type: "default",
+        title: "Language",
+        links: [
+          { text: "English", url: "https://example.com" },
+          { text: "Polish", url: "https://example.com" },
+        ],
+      },
+      {
+        type: "social",
+        title: "Follow us",
+        socialIcons: [
+          {
+            url: "https://example.com",
+            iconSrc: "assets/icons/in.svg",
+            iconAlt: "Linkedin",
+          },
+        ],
+      },
+      {
+        type: "contact",
+        title: "Contact",
+        email: "hello@zen.com",
+      },
+    ],
+    infoTexts: [
+      "ZEN is a licensed financial institution under the supervision of the Central Bank of Lithuania approved by European Banking Authority for 31 countries.",
+      "Registration number of the company 304749651, VAT ID LT100011714916.",
+      "License of electronic money institutions number LB000457.",
+      "Share capital 2.185.000,00 EUR.",
+      "Company address: Mėsinių g. 5, LT-01133, Vilnius, Lithuania.",
+      "Sales Office: ul. Emilii Plater 53, 00-113 Warsaw, Poland.",
+    ],
+    developerLogo: {
+      src: "assets/icons/developer.svg",
+      alt: "Developer",
+      url: "https://example.com",
+    },
+  }),
 };

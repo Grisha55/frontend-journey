@@ -5,6 +5,7 @@ import { Care } from './components/Care/Care.js';
 import { Cashback } from './components/Cashback/Cashback.js';
 import { Header } from './components/Header/Header.js';
 import { Footer } from './components/Footer/Footer.js';
+import { Modal } from './components/Modal/Modal.js';
 
 const $root = document.getElementById('root');
 
@@ -15,4 +16,5 @@ if ($root) {
   $root.insertAdjacentHTML('beforeend', Cashback(data.cashback));
   $root.insertAdjacentHTML('beforeend', Header(data.header));
   $root.insertAdjacentHTML('beforeend', Footer(data.footer));
+  $root.insertAdjacentHTML('beforeend', Modal(data.modal));
 }

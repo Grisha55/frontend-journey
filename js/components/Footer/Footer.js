@@ -4,8 +4,9 @@
 
 /**
  * @function Footer
+ * @description Large UI component
  * @param {Footer} data
- * @returns {string}
+ * @returns {string} HTML or empty
  */
 export const Footer = (data) => {
   if (!data) return "";

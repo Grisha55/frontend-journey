@@ -1,5 +1,6 @@
 /**
  * @typedef {import('../components/Footer/types').Footer} Footer
+ * @typedef {import('../components/Modal/types').Modal} Modal
  */
 
 export const data = {
@@ -283,4 +284,50 @@ export const data = {
       url: "https://example.com",
     },
   }),
+  modal: {
+    image: {
+      source: "assets/icons/close-icon.svg",
+      description: "Close modal window"
+    },
+    title: "Request a Consultation",
+    formFields: [
+      /** @type {import('../components/Modal/types').TextFormField} */ ({
+        type: "text",
+        id: "name",
+        label: "Name"
+      }),
+      /** @type {import('../components/Modal/types').TextFormField} */ ({
+        type: "tel",
+        id: "tel",
+        label: "Phone Number"
+      }),
+      /** @type {import('../components/Modal/types').TextFormField} */ ({
+        type: "email",
+        id: "email",
+        label: "Email Address"
+      }),
+      /** @type {import('../components/Modal/types').SelectFormField} */ ({
+        type: "select",
+        id: "connection",
+        label: "Preferred Contact Method",
+        options: [
+          {
+            value: "telegram",
+            text: "Telegram"
+          },
+          {
+            value: "whatsapp",
+            text: "WhatsApp"
+          }
+        ]
+      }),
+     /** @type {import('../components/Modal/types').CheckboxFormField} */ ({
+        type: "checkbox",
+        id: "policy",
+      label: "I agree to the Privacy Policy"
+      })
+    ],
+    privacyPolicyUrl: "https://example.com/privacy-policy",
+    submitButtonText: "Submit Request"
+  }
 };

@@ -9,9 +9,16 @@ import { Footer } from './components/Footer/Footer.js';
 import { Modal } from './components/Modal/Modal.js';
 import { Menu } from './components/Menu/Menu.js';
 
-const $root = document.getElementById('root');
+(async () => {
+  //const url = 'http://localhost:5000/api/data';
+  const url = 'https://jsonplaceholder.typicode.com/todos/1';
+  const response = await fetch(url);
+  const resData = await response.json();
+  if (!resData) return;
 
-if ($root) {
+  const $root = document.getElementById('root');
+  if (!$root) return;
+
   $root.insertAdjacentHTML('beforeend', Download(data.download));
   $root.insertAdjacentHTML('beforeend', Warranty(data.warranty));
   $root.insertAdjacentHTML('beforeend', Care(data.care));
@@ -21,4 +28,4 @@ if ($root) {
   $root.insertAdjacentHTML('beforeend', Modal(data.modal));
   // $root.insertAdjacentHTML('beforeend', Menu(data.meta));
   $root.append(Clients(data.clients));
-}
+})();

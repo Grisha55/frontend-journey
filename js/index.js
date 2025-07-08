@@ -1,8 +1,9 @@
-import { data } from './data/data';
+import { data } from './data/data.js';
 import { Download } from './components/Download/Download.js';
 import { Warranty } from './components/Warranty/Warranty.js';
 import { Care } from './components/Care/Care.js';
 import { Cashback } from './components/Cashback/Cashback.js';
+import { Clients } from './components/Clients/Clients.js';
 import { Header } from './components/Header/Header.js';
 import { Footer } from './components/Footer/Footer.js';
 import { Modal } from './components/Modal/Modal.js';
@@ -19,4 +20,5 @@ if ($root) {
   $root.insertAdjacentHTML('beforeend', Footer(data.footer));
   $root.insertAdjacentHTML('beforeend', Modal(data.modal));
   // $root.insertAdjacentHTML('beforeend', Menu(data.meta));
+  $root.append(Clients(data.clients));
 }

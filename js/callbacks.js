@@ -1,5 +1,3 @@
-
-  
   /** 
    * @function callback1
    * @param {Response} response

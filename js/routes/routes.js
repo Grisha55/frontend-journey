@@ -40,8 +40,16 @@ export const routes = [
   {
     method: "GET",
     endpoint: "/data/download",
-    handler: async () => {
+    handler: async (req, res) => {
       console.log("download");
+      const downloadData = data.download;
+      const headers = {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      };
+      const statusCode = 200;
+      const resData = JSON.stringify({ download: downloadData });
+      res.writeHead(statusCode, headers).end(resData);
     },
   },
 
@@ -54,8 +62,16 @@ export const routes = [
   {
     method: "GET",
     endpoint: "/data/warranty",
-    handler: async () => {
+    handler: async (req, res) => {
       console.log("warranty");
+      const warrantyData = data.warranty;
+      const headers = {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      };
+      const statusCode = 200;
+      const resData = JSON.stringify({ warranty: warrantyData });
+      res.writeHead(statusCode, headers).end(resData);
     },
   },
 
@@ -68,8 +84,16 @@ export const routes = [
   {
     method: "GET",
     endpoint: "/data/care",
-    handler: async () => {
+    handler: async (req, res) => {
       console.log("care");
+      const careData = data.care;
+      const headers = {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      };
+      const statusCode = 200;
+      const resData = JSON.stringify({ care: careData });
+      res.writeHead(statusCode, headers).end(resData);
     },
   },
 
@@ -82,8 +106,16 @@ export const routes = [
   {
     method: "GET",
     endpoint: "/data/cashback",
-    handler: async () => {
+    handler: async (req, res) => {
       console.log("cashback");
+      const cashbackData = data.cashback;
+      const headers = {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      };
+      const statusCode = 200;
+      const resData = JSON.stringify({ cashback: cashbackData });
+      res.writeHead(statusCode, headers).end(resData);
     },
   },
 
@@ -96,8 +128,16 @@ export const routes = [
   {
     method: "GET",
     endpoint: "/data/clients",
-    handler: async () => {
+    handler: async (req, res) => {
       console.log("clients");
+      const clientsData = data.clients;
+      const headers = {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      };
+      const statusCode = 200;
+      const resData = JSON.stringify({ clients: clientsData });
+      res.writeHead(statusCode, headers).end(resData);
     },
   },
 ];

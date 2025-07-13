@@ -12,7 +12,7 @@ type Logo = {
 };
 
 // Menu item interface
-type MenuItem = {
+export type MenuItem = {
   href: string;
   text: string;
 };
@@ -29,7 +29,7 @@ type Nav = {
 };
 
 // Language option interface
-type LangOption = {
+export type LangOption = {
   value: string;
   text: string;
 };
@@ -60,7 +60,7 @@ type BurgerButton = {
 };
 
 // Header actions interface
-type HeaderActions = {
+export type HeaderActions = {
   lang: Language;
   theme: ThemeButton;
   burger: BurgerButton;

@@ -1,7 +1,8 @@
 import { data } from "../data/data.js";
+import { writeFile } from "fs/promises";
 
 /**
- * @typedef {import('./types').Route} Route
+ * @typedef {import('./types').Route} Route;
  */
 
 /**
@@ -138,6 +139,55 @@ export const routes = [
       const statusCode = 200;
       const resData = JSON.stringify({ clients: clientsData });
       res.writeHead(statusCode, headers).end(resData);
+    },
+  },
+
+  /**
+   * @method POST
+   * @route /form
+   * @description Getting from data
+   */
+
+  {
+    method: 'POST',
+    endpoint: '/form',
+    handler: async (req, res) => {
+      let body = '';
+      console.log(body);
+
+      req.on('data', (chunk) => {
+        body += chunk.toString();
+        console.log({chunk});
+        console.log({body});
+      });
+
+      req.on('end', async () => {
+        try {
+          const data = JSON.parse(body);
+          console.log('Form data:', data);
+
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = (now.getMonth() + 1).toString().padStart(2, '0');
+          const day = now.getDate().toString().padStart(2, '0');
+          const hours = now.getHours().toString().padStart(2, '0');
+          const minutes = now.getMinutes().toString().padStart(2, '0');
+          const seconds = now.getSeconds().toString().padStart(2, '0');
+
+          const timestamp = `${year}-${month}-${day}-${hours}:${minutes}:${seconds}`;
+          const filename = `./db/orders/form-${timestamp}.json`;
+
+          writeFile (
+            filename,
+            JSON.stringify(data, null, 2)
+          )
+            .catch((error) => {
+            console.error(error);
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      });
     },
   },
 ];

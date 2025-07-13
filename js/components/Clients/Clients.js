@@ -5,49 +5,37 @@
 /**
  * @function Clients
  * @description Large UI component
- * @param {Clients} clients 
- * @returns
+ * @returns {Promise<string>} HTML or empty
  */
 
-export const Clients = (clients) => {
-  if (!clients) return '';
+export const Clients = async () => {
   
-  const section = document.createElement('section');
-  const wrapper = document.createElement('div');
-  const list = document.createElement('ul');
+  const API_URL = 'http://localhost:3000/data/clients';
 
-  section.className = 'clients';
-  wrapper.className = 'clients__wrapper';
-  list.className = 'list';
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    /** @type {Clients} */
+    const data = await response.json()
+    console.log(data);
 
-  for (const client of clients.clients) {
-    const listItem = document.createElement('li');
-    const image = document.createElement('img');
-
-    listItem.classList = 'list__item';
-  
-    image.src = client.image.source;
-    image.alt = client.image.description;
-  
-    listItem.append(image);
-  
-    list.append(listItem);
+    return /* html */`
+      <section class="clients">
+        <div class="clients__wrapper">
+          ${data.clients.map(
+            (client) => `
+              <div class="clients__img">
+                <img src=${client.image.source} alt=${client.image.description}>
+              </div>
+              `
+          ).join('')}
+        </div>
+      </section>
+    `
+  } catch (error) {
+    console.error(error);
+    return '';
   }
-
-  wrapper.append(list);
-  section.append(wrapper);
-
-  return section;
-
-  // return /* html */`
-  //   <section class="clients" id="clients">
-  //     <div class="clients__wrapper">
-  //       <ul class="clients__brands">
-  //         <li class="clients__brand">
-  //           ${data.clients.images.map ((image) => `<img src="${image.source}" alt="${image.description}">`)}
-  //         </li>
-  //       </ul>
-  //     </div>
-  //   </section>
-  // `;
 };

@@ -22,7 +22,7 @@ const $root = document.getElementById("root");
     $root.insertAdjacentHTML("beforeend", await Header());
     $root.insertAdjacentHTML("beforeend", await Footer());
     $root.insertAdjacentHTML("beforeend", await Modal(data.modal));
-    //$root.insertAdjacentHTML('beforeend', Menu(data.meta));
+    $root.insertAdjacentHTML('beforeend', await Menu());
     $root.insertAdjacentHTML("beforeend", await Clients());
 
     /* Регистрация событий */

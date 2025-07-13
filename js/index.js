@@ -1,39 +1,33 @@
-import { data } from './data/data.js';
-import { Download } from './components/Download/Download.js';
-import { Warranty } from './components/Warranty/Warranty.js';
-import { Care } from './components/Care/Care.js';
-import { Cashback } from './components/Cashback/Cashback.js';
-import { Clients } from './components/Clients/Clients.js';
-import { Header } from './components/Header/Header.js';
-import { Footer } from './components/Footer/Footer.js';
-import { Modal } from './components/Modal/Modal.js';
-import { Menu } from './components/Menu/Menu.js';
+import { data } from "./data/data.js";
+import { Download } from "./components/Download/Download.js";
+import { Warranty } from "./components/Warranty/Warranty.js";
+import { Care } from "./components/Care/Care.js";
+import { Cashback } from "./components/Cashback/Cashback.js";
+import { Clients } from "./components/Clients/Clients.js";
+import { Header } from "./components/Header/Header.js";
+import { Footer } from "./components/Footer/Footer.js";
+import { Modal } from "./components/Modal/Modal.js";
+import { Menu } from "./components/Menu/Menu.js";
+import './helpers/postForm.js';
+
+const $root = document.getElementById("root");
 
 (async () => {
-  const url = 'https://jsonplaceholder.typicode.com/todos/1';
-  try {
-    const response = await fetch(url);
+  if ($root) {
+    /* Построение UI */
+    $root.insertAdjacentHTML("beforeend", await Download());
+    $root.insertAdjacentHTML("beforeend", await Warranty());
+    $root.insertAdjacentHTML("beforeend", await Care());
+    $root.insertAdjacentHTML("beforeend", await Cashback());
+    $root.insertAdjacentHTML("beforeend", await Header());
+    $root.insertAdjacentHTML("beforeend", await Footer());
+    $root.insertAdjacentHTML("beforeend", await Modal(data.modal));
+    //$root.insertAdjacentHTML('beforeend', Menu(data.meta));
+    $root.insertAdjacentHTML("beforeend", await Clients());
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    /* Регистрация событий */
+    const $form = document.getElementById('order');
 
-    const resData = await response.json();
-    if (!resData) return;
-  
-    const $root = document.getElementById('root');
-    if (!$root) return;
-  
-    $root.insertAdjacentHTML('beforeend', Download(data.download));
-    $root.insertAdjacentHTML('beforeend', Warranty(data.warranty));
-    $root.insertAdjacentHTML('beforeend', Care(data.care));
-    $root.insertAdjacentHTML('beforeend', Cashback(data.cashback));
-    $root.insertAdjacentHTML('beforeend', Header(data.header));
-    $root.insertAdjacentHTML('beforeend', Footer(data.footer));
-    $root.insertAdjacentHTML('beforeend', Modal(data.modal));
-    // $root.insertAdjacentHTML('beforeend', Menu(data.meta));
-    $root.append(Clients(data.clients));
-  } catch (error) {
-    console.error('Fetch error:', error);
+    $form?.addEventListener('submit', () => {});
   }
 })();

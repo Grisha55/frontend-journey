@@ -1,0 +1,25 @@
+/*clients*/
+
+// Variables
+$gap: 30px;
+
+.clients {
+  padding: 30px 15px;
+
+  &__wrapper {
+    display: grid;
+    gap: $gap;
+  }
+
+  &__brands {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $gap;
+  }
+
+  &__brand {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

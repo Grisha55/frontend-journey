@@ -5,64 +5,75 @@
 /**
  * @function Footer
  * @description Large UI component
- * @param {Footer} data
- * @returns {string} HTML or empty
+ * @returns {Promise<string>} HTML or empty
  */
-export const Footer = (data) => {
-  if (!data) return "";
+export const Footer = async () => {
 
-  const { logo, columns, infoTexts, developerLogo } = data;
+  const API_URL = 'http://localhost:3000/data/footer';
 
-  return /* html */`
-    <footer class="footer" id="footer">
-      <div class="footer__wrapper">
-        <div class="footer__columns">
-          ${columns.map(column => `
-            <div class="column">
-              <h3 class="column__title">${column.title}</h3>
-              <ul class="column__list">
-                ${
-                  column.type === 'social' && column.socialIcons
-                    ? column.socialIcons.map(icon => `
-                        <li class="column__item">
-                          <a href="${icon.url}">
-                            <img src="${icon.iconSrc}" alt="${icon.iconAlt}">
-                          </a>
-                        </li>
-                      `).join('')
-                    : column.type === 'contact' && column.email
-                      ? `
-                        <li class="column__item">
-                          <a href="mailto:${column.email}">${column.email}</a>
-                        </li>
-                      `
-                      : column.type === 'default' && column.links
-                        ? column.links.map(link => `
-                            <li class="column__item">
-                              <a href="${link.url}">${link.text}</a>
-                            </li>
-                          `).join('')
-                        : ''
-                }
-              </ul>
-            </div>
-          `).join('')}
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    /** @type {Footer} */
+    const data = await response.json();
+    console.log(data);
+
+    return /* html */`
+      <footer class="footer" id="footer">
+        <div class="footer__wrapper">
+          <div class="footer__columns">
+            ${data.columns.map(column => `
+              <div class="column">
+                <h3 class="column__title">${column.title}</h3>
+                <ul class="column__list">
+                  ${
+                    column.type === 'social' && column.socialIcons
+                      ? column.socialIcons.map(icon => `
+                          <li class="column__item">
+                            <a href="${icon.url}">
+                              <img src="${icon.iconSrc}" alt="${icon.iconAlt}">
+                            </a>
+                          </li>
+                        `).join('')
+                      : column.type === 'contact' && column.email
+                        ? `
+                          <li class="column__item">
+                            <a href="mailto:${column.email}">${column.email}</a>
+                          </li>
+                        `
+                        : column.type === 'default' && column.links
+                          ? column.links.map(link => `
+                              <li class="column__item">
+                                <a href="${link.url}">${link.text}</a>
+                              </li>
+                            `).join('')
+                          : ''
+                  }
+                </ul>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="footer__info">
+            <a class="footer__logo" href="${data.logo.url}">
+              <img src="${data.logo.src}" alt="${data.logo.alt}">
+            </a>
+
+            ${data.infoTexts.map(text => `
+              <p class="footer__copy">${text}</p>
+            `).join('')}
+
+            <a class="footer__dev" href="${data.developerLogo.url}">
+              <img src="${data.developerLogo.src}" alt="${data.developerLogo.alt}">
+            </a>
+          </div>
         </div>
-
-        <div class="footer__info">
-          <a class="footer__logo" href="${logo.url}">
-            <img src="${logo.src}" alt="${logo.alt}">
-          </a>
-
-          ${infoTexts.map(text => `
-            <p class="footer__copy">${text}</p>
-          `).join('')}
-
-          <a class="footer__dev" href="${developerLogo.url}">
-            <img src="${developerLogo.src}" alt="${developerLogo.alt}">
-          </a>
-        </div>
-      </div>
-    </footer>
-  `;
+      </footer>
+    `;
+  } catch (error) {
+    console.error(error);
+    return '';
+  }
 };

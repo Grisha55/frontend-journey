@@ -1,0 +1,28 @@
+/*global*/
+
+// Variables
+$body-padding-top: 50px;
+$base-font-size: 14px;
+$input-font-size: 16px;
+$font-family: 'Nunito', sans-serif;
+$font-weight: 400;
+
+// Основные стили body
+body {
+  padding-top: $body-padding-top;
+  font: {
+    family: $font-family;
+    size: $base-font-size;
+    weight: $font-weight;
+  }
+}
+
+// Стили для input
+input {
+  font-size: $input-font-size;
+}
+
+// Стили для изображений
+img {
+  width: 100%;
+}

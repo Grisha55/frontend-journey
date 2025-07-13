@@ -1,0 +1,21 @@
+/*column*/
+.column {
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  &__list {
+    margin-top: 20px;
+  }
+
+  &__item {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}

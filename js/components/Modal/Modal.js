@@ -5,14 +5,23 @@
 /**
  * @function Modal
  * @description Large UI component
- * @param {Modal} data 
- * @returns {string} HTML or empty
+ * @returns {Promise<string>} HTML or empty
  */
 
-export const Modal = (data) => {
-  if (!data) return '';
+export const Modal = async () => {
+  
+  const API_URL = 'http://localhost:3000/data/modal';
 
-  return /* html */`
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    /** @type {Modal} */
+    const data = await response.json();
+    console.log(data);
+
+    return /* html */`
     <div class="modal" id="modal">
       <div class="modal__body">
         <!-- Close -->
@@ -46,10 +55,13 @@ export const Modal = (data) => {
               <option value="whatsapp">WhatsApp</option>
             </select>
           </label>
-          <!-- Privacy policy -->
+          // Privacy policy
           <label class="form__checkbox">
-            <input type="checkbox" id="policy">
-            <a href="https://example.com/policy" target="_blank">Privacy policy</a>
+            <input type="checkbox" class="checkbox-input" id="policy-checkbox">
+            <span class="checkbox-custom">
+              <img src="/assets/icons/unchecked.svg" id="policy-icon" alt="Policy status">
+            </span>
+            <a href="#" target="_blank" class="policy-link">Privacy Policy</a>
           </label>
           <!-- Submit -->
           <button class="form__submit" type="submit">Submit</button>
@@ -57,4 +69,9 @@ export const Modal = (data) => {
       </div>
     </div>
   `;
+  } catch (error) {
+    console.error(error);
+    return '';
+  }
 };
+

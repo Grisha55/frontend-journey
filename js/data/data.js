@@ -339,10 +339,10 @@ export const data = {
   }),
   modal: {
     image: {
-      source: "assets/icons/close-icon.svg",
+      source: "assets/icons/close.svg",
       description: "Close modal window"
     },
-    title: "Request a Consultation",
+    title: "Order a Consultation",
     formFields: [
       /** @type {import('../components/Modal/types').TextFormField} */ ({
         type: "text",
@@ -377,7 +377,7 @@ export const data = {
      /** @type {import('../components/Modal/types').CheckboxFormField} */ ({
         type: "checkbox",
         id: "policy",
-      label: "I agree to the Privacy Policy"
+        label: "I agree to the Privacy Policy"
       })
     ],
     privacyPolicyUrl: "https://example.com/privacy-policy",

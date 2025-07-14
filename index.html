@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZEN</title>
   <link rel="stylesheet" href="style.css">
+  <div id="root"></div>
   <script type="module" src="js/index.js" defer></script>
   </head>
 
@@ -309,8 +310,11 @@
           </label>
           <!-- Privacy policy -->
           <label class="form__checkbox">
-            <input type="checkbox" id="policy">
-            <a href="https://example.com/policy" target="_blank">Privacy policy</a>
+            <input type="checkbox" class="checkbox-input" id="policy">
+            <span class="checkbox-custom">
+              <img src="/assets/icons/unchecked.svg" id="policy-icon" alt="Policy status">
+            </span>
+              <a href="https://example.com/policy" target="_blank" class="policy-link">Privacy policy</a>
           </label>
           <!-- Submit -->
           <button class="form__submit" type="submit">Submit</button>

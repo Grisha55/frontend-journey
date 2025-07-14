@@ -142,6 +142,28 @@ export const routes = [
     },
   },
 
+    /**
+   * @method GET
+   * @route /data/modal
+   * @description: Getting modal data
+   */
+
+  {
+    method: "GET",
+    endpoint: "/data/modal",
+    handler: async (req, res) => {
+      console.log("modal");
+      const modalData = data.modal;
+      const headers = {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      };
+      const statusCode = 200;
+      const resData = JSON.stringify({ modal: modalData });
+      res.writeHead(statusCode, headers).end(resData);
+    },
+  },
+
   /**
    * @method POST
    * @route /form

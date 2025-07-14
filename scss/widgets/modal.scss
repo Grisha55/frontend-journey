@@ -52,3 +52,58 @@ $title-font-size: 18px;
     font-weight: 700;
   }
 }
+
+// // Custom checkbox styles
+// .form__checkbox {
+//   display: inline-flex;
+//   align-items: center;
+//   cursor: pointer;
+//   margin: 10px 0;
+//   position: relative;
+
+//   // Скрываем оригинальный чекбокс
+//   .checkbox-input {
+//     position: absolute;
+//     opacity: 0;
+//     width: 0;
+//     height: 0;
+    
+//     // Состояние checked (для CSS-галочки)
+//     &:focus-visible + .checkbox-custom {
+//       outline: 2px solid #484848;
+//     }
+//   }
+
+//   // Кастомный чекбокс
+//   .checkbox-custom {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 14px;
+//     height: 14px;
+//     margin-right: 8px;
+    
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       transition: opacity 0.2s;
+//     }
+//   }
+
+//   // Ссылка с подчеркиванием
+//   .policy-link {
+//     color: #222;
+//     text-decoration: none;
+//     position: relative;
+    
+//     &::after {
+//       content: '';
+//       position: absolute;
+//       bottom: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 1px;
+//       background-color: #484848;
+//     }
+//   }
+// }

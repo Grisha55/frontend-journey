@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="style.css">
   <div id="root"></div>
   <script type="module" src="js/index.js" defer></script>
+  <style>
+    /* Убирает ВСЕ подсветки фокуса на странице */
+    * {
+      -webkit-tap-highlight-color: transparent !important;
+      -webkit-focus-ring-color: transparent !important;
+      outline: none !important;
+    }
+    
+    /* Для кастомных чекбоксов */
+    .checkbox-input:focus + .checkbox-custom {
+      box-shadow: none !important;
+    }
+  </style>
   </head>
 
   <body>
@@ -300,21 +313,22 @@
             <input type="email" placeholder="E-mail" id="email">
           </label>
           <!-- Connection -->
-          <label class="form__field">
-            <span>Connection</span>
+          <label class="form__field connection-field">
             <select id="connection">
-              <option value=""></option>
+              <option value="" disabled selected>Connection</option>
               <option value="telegram">Telegram</option>
               <option value="whatsapp">WhatsApp</option>
             </select>
           </label>
           <!-- Privacy policy -->
           <label class="form__checkbox">
-            <input type="checkbox" class="checkbox-input" id="policy">
+            <input type="checkbox" class="checkbox-input" id="policy-checkbox">
             <span class="checkbox-custom">
               <img src="/assets/icons/unchecked.svg" id="policy-icon" alt="Policy status">
             </span>
+            <span class="policy-text">
               <a href="https://example.com/policy" target="_blank" class="policy-link">Privacy policy</a>
+            </span>
           </label>
           <!-- Submit -->
           <button class="form__submit" type="submit">Submit</button>

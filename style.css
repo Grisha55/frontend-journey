@@ -91,20 +91,49 @@ img {
 
 /*menu*/
 .menu {
-  display: none;
   background: #fff;
-}
-.menu.active {
-  display: block;
   position: fixed;
   top: 51px;
   left: 0;
   right: 0;
+  width: 100%;
+  height: calc(100vh - 51px);
+  z-index: 100;
+}
+.menu.active {
+  display: block;
+}
+.menu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .menu__item {
+  position: relative;
+}
+.menu__item a {
+  display: block;
   padding: 24px 15px;
   font-size: 24px;
-  border-bottom: 1px solid #aaa;
+  font-weight: 400;
+  text-decoration: none;
+  color: inherit;
+}
+.menu__item:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #aaa;
+}
+.menu__item:last-child:after {
+  display: none;
+}
+
+.divider {
+  display: none;
 }
 
 /*burger*/
@@ -524,7 +553,8 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  opacity: 1;
+  opacity: 0;
+  visibility: hidden;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;

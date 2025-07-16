@@ -1,20 +1,54 @@
 /*menu*/
 
 .menu {
-  display: none;
   background: #fff;
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: calc(100vh - 51px);
+  z-index: 100;
+  display: none;
 
   &.active {
     display: block;
-    position: fixed;
-    top: 51px;
-    left: 0;
-    right: 0;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   &__item {
-    padding: 24px 15px;
-    font-size: 24px;
-    border-bottom: 1px solid #aaa;
+    a {
+      display: block;
+      padding: 24px 15px;
+      font-size: 24px;
+      font-weight: 400;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: #aaa;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
   }
+}
+
+.divider {
+  display: none;
 }

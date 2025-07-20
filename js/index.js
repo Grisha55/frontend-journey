@@ -9,8 +9,10 @@ import { Footer } from "./components/Footer/Footer.js";
 import { Modal } from "./components/Modal/Modal.js";
 import { Menu } from "./components/Menu/Menu.js";
 import "./helpers/postForm.js";
+import { handleThemeButtonClick } from './handlers.js';
 
 const $root = document.getElementById("root");
+const $themeButton = document.querySelector('#theme');
 
 (async function init() {
   if (!$root) {
@@ -57,6 +59,8 @@ const $root = document.getElementById("root");
         ? "/assets/icons/check.svg"
         : "/assets/icons/unchecked.svg";
     }
+
+    $themeButton?.addEventListener('click', handleThemeButtonClick);
 
     // Вешаем обработчик после полной загрузки
     document.addEventListener("change", handleChange);

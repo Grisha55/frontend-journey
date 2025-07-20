@@ -336,8 +336,8 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  background: #fff;
-  border-bottom: 1px solid #aaa;
+  background: var(--bg-color-primary);
+  border-bottom: 1px solid var(--bg-color-primary);
 }
 .header__wrapper {
   height: 50px;
@@ -348,9 +348,14 @@ img {
 .header__logo {
   width: 77px;
   height: 30px;
+  color: var(--color-primary);
 }
 .header__logo img {
   height: 100%;
+}
+.header__logo svg {
+  height: 100%;
+  fill: currentColor;
 }
 .header__actions {
   margin-left: auto;
@@ -367,6 +372,7 @@ img {
   border: 1px solid #000;
   border-radius: 4px;
   overflow: hidden;
+  color: var(--color-primary);
 }
 .header__lang img {
   position: absolute;
@@ -381,10 +387,13 @@ img {
   padding-left: 8px;
   height: 100%;
   width: 100%;
+  color: var(--color-primary);
+  background-color: var(--bg-color-primary);
 }
 .header__theme {
   width: 26px;
   height: 26px;
+  color: var(--color-primary);
 }
 
 /*download*/
@@ -399,6 +408,7 @@ img {
 .download__title {
   font-size: 30px;
   font-weight: 700;
+  color: var(--color-primary);
 }
 .download__copy {
   margin-top: 20px;

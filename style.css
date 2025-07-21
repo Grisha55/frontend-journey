@@ -72,6 +72,17 @@ img {
   font-style: normal;
   font-display: swap;
 }
+.app.light {
+  --color-primary: #000;
+  --border-color-primary: #484848;
+  --bg-color-primary: #fff;
+}
+.app.dark {
+  --color-primary: #fff;
+  --border-color-primary: #fff;
+  --bg-color-primary: #484848;
+}
+
 /*column*/
 .column__title {
   font-size: 16px;
@@ -91,7 +102,7 @@ img {
 
 /*menu*/
 .menu {
-  background: #fff;
+  background: var(--color-primary);
   position: fixed;
   top: 51px;
   left: 0;
@@ -127,7 +138,7 @@ img {
   right: 0;
   bottom: 0;
   height: 1px;
-  background: #aaa;
+  background: var(--bg-color-primary);
 }
 .menu__item:last-child:after {
   display: none;
@@ -148,7 +159,7 @@ img {
   display: block;
   width: 100%;
   height: 2px;
-  background: #000;
+  background: var(--color-primary);
   position: absolute;
   left: 0;
 }
@@ -159,7 +170,7 @@ img {
   display: block;
   width: 100%;
   height: 2px;
-  background: #000;
+  background: var(--color-primary);
 }
 .burger::after {
   bottom: 0;
@@ -336,14 +347,15 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  background: var(--bg-color-primary);
-  border-bottom: 1px solid var(--bg-color-primary);
+  border-bottom: 1px solid var(--color-primary);
+  background-color: var(--bg-color-primary);
 }
 .header__wrapper {
   height: 50px;
   padding: 0 15px;
   display: flex;
   align-items: center;
+  background-color: var(--bg-color-primary);
 }
 .header__logo {
   width: 77px;
@@ -382,6 +394,7 @@ img {
   transform: translateY(-50%);
   width: 9px;
   height: 6px;
+  color: #fff;
 }
 .header__lang select {
   padding-left: 8px;
@@ -399,11 +412,25 @@ img {
 /*download*/
 .download {
   padding: 30px 15px;
+  background-color: var(--bg-color-primary);
 }
 .download__wrapper {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  background-color: var(--bg-color-primary);
+}
+.download__image-block {
+  border: 1px solid var(--color-primary);
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #fff;
+}
+.download__image-block img {
+  display: block;
+  padding: 10px 28px;
+  box-sizing: border-box;
+  object-fit: contain;
 }
 .download__title {
   font-size: 30px;
@@ -411,6 +438,7 @@ img {
   color: var(--color-primary);
 }
 .download__copy {
+  color: var(--color-primary);
   margin-top: 20px;
 }
 .download__links {
@@ -419,6 +447,8 @@ img {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  background-color: var(--bg-color-primary);
+  border-color: var(--color-primary);
 }
 
 /*footer*/
@@ -459,42 +489,56 @@ img {
 /*warranty*/
 .warranty {
   padding: 30px 15px;
+  background-color: var(--bg-color-primary);
 }
 .warranty__wrapper {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  background-color: var(--bg-color-primary);
+}
+.warranty__image-block {
+  height: 72vw;
+  border: 1px solid var(--color-primary);
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #fff;
+}
+.warranty__image-block img {
+  display: block;
+  padding: 10px 28px;
+  box-sizing: border-box;
+  object-fit: contain;
 }
 .warranty__title {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: var(--color-primary);
 }
 .warranty__copy {
   font-weight: 400;
   margin-top: 10px;
+  color: var(--color-primary);
 }
 .warranty__copy:first-of-type {
   margin-top: 20px;
-}
-.warranty__image-block {
-  height: 72vw;
-  border: 1px solid #aaa;
-  border-radius: 20px;
-  overflow: hidden;
 }
 
 /*cashback*/
 .cashback {
   padding: 30px 15px;
+  background-color: var(--bg-color-primary);
 }
 .cashback__title {
   font-size: 26px;
   font-weight: 700;
+  color: var(--color-primary);
 }
 .cashback__copy {
   font-weight: 400;
   margin-top: 10px;
+  color: var(--color-primary);
 }
 .cashback__copy:first-of-type {
   margin-top: 20px;
@@ -508,38 +552,45 @@ img {
   height: 50px;
   border-radius: 30px;
   border: 1px solid #aaa;
+  color: var(--color-primary);
 }
 
 .care {
   padding: 30px 15px;
+  background-color: var(--bg-color-primary);
 }
 .care__wrapper {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  background-color: var(--bg-color-primary);
 }
 .care__title {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: var(--color-primary);
 }
 .care__copy {
   font-weight: 400;
   margin-top: 10px;
+  color: var(--color-primary);
 }
 .care__copy:first-of-type {
   margin-top: 20px;
 }
 .care__image-block {
   height: 72vw;
-  border: 1px solid #aaa;
+  border: 1px solid var(--color-primary);
   border-radius: 20px;
   overflow: hidden;
+  background-color: #f9f9f9;
 }
 
 /*clients*/
 .clients {
   padding: 30px 15px;
+  background-color: var(--bg-color-primary);
 }
 .clients__wrapper {
   display: grid;
@@ -554,6 +605,7 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  color: #fff;
 }
 
 .modal {

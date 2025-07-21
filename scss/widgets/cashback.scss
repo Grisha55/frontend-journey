@@ -2,15 +2,18 @@
 
 .cashback {
   padding: 30px 15px;
+  background-color: var(--bg-color-primary);
 
   &__title {
     font-size: 26px;
     font-weight: 700;
+    color: var(--color-primary);
   }
 
   &__copy {
     font-weight: 400;
     margin-top: 10px;
+    color: var(--color-primary);
 
     &:first-of-type {
       margin-top: 20px;
@@ -26,5 +29,6 @@
     height: 50px;
     border-radius: 30px;
     border: 1px solid #aaa;
+    color: var(--color-primary);
   }
 }

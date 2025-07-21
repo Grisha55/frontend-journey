@@ -1,7 +1,7 @@
 /*menu*/
 
 .menu {
-  background: #fff;
+  background: var(--color-primary);
   position: fixed;
   top: 51px;
   left: 0;
@@ -40,7 +40,7 @@
       right: 0;
       bottom: 0;
       height: 1px;
-      background: #aaa;
+      background: var(--bg-color-primary);
     }
 
     &:last-child:after {

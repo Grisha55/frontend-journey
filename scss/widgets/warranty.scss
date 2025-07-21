@@ -1,33 +1,54 @@
 /*warranty*/
 
+// Variables
+$gap-large: 30px;
+$gap-small: 15px;
+
+// Mixin for flex-container with columns and gap
+@mixin flex-column($gap) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  background-color: var(--bg-color-primary);
+}
+
 .warranty {
   padding: 30px 15px;
+  background-color: var(--bg-color-primary);
 
   &__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    @include flex-column($gap-large);
+  }
+
+  &__image-block {
+    height: 72vw;
+    border: 1px solid var(--color-primary);
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #fff;
+
+    img {
+      display: block;
+      padding: 10px 28px;
+      box-sizing: border-box;
+      object-fit: contain;
+    }
   }
 
   &__title {
     font-size: 26px;
     font-weight: 700;
     margin-bottom: 20px;
+    color: var(--color-primary);
   }
 
   &__copy {
     font-weight: 400;
     margin-top: 10px;
+    color: var(--color-primary);
 
     &:first-of-type {
       margin-top: 20px;
     }
-  }
-
-  &__image-block {
-    height: 72vw;
-    border: 1px solid #aaa;
-    border-radius: 20px;
-    overflow: hidden;
   }
 }

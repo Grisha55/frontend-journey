@@ -27,7 +27,7 @@ export const Clients = async () => {
           ${data.clients.map(
             (client) => `
               <div class="clients__img">
-                <img src=${client.image.source} alt=${client.image.description}>
+                <img src=${client.image.lightSource} alt=${client.image.description}>
               </div>
               `
           ).join('')}

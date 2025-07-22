@@ -197,35 +197,43 @@ window.addEventListener("DOMContentLoaded", () => {
           key: "clients",
           images: [
             {
-              source: "/assets/brands/1.svg",
+              sourceLight: '/assets/brands/light/1.svg',
+              sourceDark: '/assets/brands/dark/1.svg',
               description: "brand 1",
             },
             {
-              source: "/assets/brands/2.svg",
+              sourceLight: '/assets/brands/light/2.svg',
+              sourceDark: '/assets/brands/dark/2.svg',
               description: "brand 2",
             },
             {
-              source: "/assets/brands/3.svg",
-              description: "brand 3",
+              sourceLight: '/assets/brands/light/3.svg',
+              sourceDark: '/assets/brands/dark/3.svg',
+              description: "brand3"
             },
             {
-              source: "/assets/brands/4.svg",
+              sourceLight: '/assets/brands/light/4.svg',
+              sourceDark: '/assets/brands/dark/4.svg',
               description: "brand 4",
             },
             {
-              source: "/assets/brands/5.svg",
+              sourceLight: '/assets/brands/light/5.svg',
+              sourceDark: '/assets/brands/dark/5.svg',
               description: "brand 5",
             },
             {
-              source: "/assets/brands/6.svg",
+              sourceLight: '/assets/brands/light/6.svg',
+              sourceDark: '/assets/brands/dark/6.svg',
               description: "brand 6",
             },
             {
-              source: "/assets/brands/7.svg",
+              sourceLight: '/assets/brands/light/7.svg',
+              sourceDark: '/assets/brands/dark/7.svg',
               description: "brand 7",
             },
             {
-              source: "/assets/brands/8.svg",
+              sourceLight: '/assets/brands/light/8.svg',
+              sourceDark: '/assets/brands/dark/8.svg',
               description: "brand 8",
             },
           ],
@@ -236,49 +244,57 @@ window.addEventListener("DOMContentLoaded", () => {
         clients: [
           {
             image: {
-              source: "/assets/brands/1.svg",
+              sourceLight: '/assets/brands/light/1.svg',
+              sourceDark: '/assets/brands/dark/1.svg',
               description: "brand 1",
             },
           },
           {
             image: {
-              source: "/assets/brands/2.svg",
+              sourceLight: '/assets/brands/light/2.svg',
+              sourceDark: '/assets/brands/dark/2.svg',
               description: "brand 2",
             },
           },
           {
             image: {
-              source: "/assets/brands/3.svg",
+              sourceLight: '/assets/brands/light/3.svg',
+              sourceDark: '/assets/brands/dark/3.svg',
               description: "brand 3",
             },
           },
           {
             image: {
-              source: "/assets/brands/4.svg",
+              sourceLight: '/assets/brands/light/4.svg',
+              sourceDark: '/assets/brands/dark/4.svg',
               description: "brand 4",
             },
           },
           {
             image: {
-              source: "/assets/brands/5.svg",
+              sourceLight: '/assets/brands/light/5.svg',
+              sourceDark: '/assets/brands/dark/5.svg',
               description: "brand 5",
             },
           },
           {
             image: {
-              source: "/assets/brands/6.svg",
+              sourceLight: '/assets/brands/light/6.svg',
+              sourceDark: '/assets/brands/dark/6.svg',
               description: "brand 6",
             },
           },
           {
             image: {
-              source: "/assets/brands/7.svg",
+              sourceLight: '/assets/brands/light/7.svg',
+              sourceDark: '/assets/brands/dark/7.svg',
               description: "brand 7",
             },
           },
           {
             image: {
-              source: "/assets/brands/8.svg",
+              sourceLight: '/assets/brands/light/8.svg',
+              sourceDark: '/assets/brands/dark/8.svg',
               description: "brand 8",
             },
           },

@@ -1,5 +1,6 @@
 type Image = {
-  source: string;
+  lightSource: string;
+  darkSource: string;
   description: string;
 };
 

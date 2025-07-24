@@ -9,6 +9,7 @@ import { Footer } from "./components/Footer/Footer.js";
 import { Modal } from "./components/Modal/Modal.js";
 import { Menu } from "./components/Menu/Menu.js";
 import "./helpers/postForm.js";
+import "/server";
 import { handleThemeButtonClick } from './handlers.js';
 
 const $root = document.getElementById("root");

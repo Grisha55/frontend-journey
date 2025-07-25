@@ -1,4 +1,13 @@
-import { data } from './data/data.js';
+// @ts-check
+/**
+ * @typedef {Object} FormData
+ * @property {string} name
+ * @property {string} tel
+ * @property {string} [email]
+ * @property {string} [connection]
+ * @property {boolean} policy
+ */
+
 import { Download } from './components/Download/Download.js';
 import { Warranty } from './components/Warranty/Warranty.js';
 import { Care } from './components/Care/Care.js';
@@ -9,12 +18,21 @@ import { Footer } from './components/Footer/Footer.js';
 import { Modal } from './components/Modal/Modal.js';
 import { Menu } from './components/Menu/Menu.js';
 import { handleThemeButtonClick } from './handlers.js';
-import './helpers/postForm.js';
+import { submitForm } from './helpers/apiClient.js';
 
+// DOM элементы
 const $root = document.getElementById("root");
 const $themeButton = document.querySelector('#theme');
+const $policyCheckbox = document.getElementById("policy-checkbox");
+const $policyIcon = document.getElementById("policy-icon");
 
-(async function init() {
+/**
+ * @function initApp
+ * @description Инициализация приложения
+ * @returns {Promise<void>}
+ */
+
+const initApp = async () => {
   if (!$root) {
     console.error("Root element not found");
     return;
@@ -36,43 +54,200 @@ const $themeButton = document.querySelector('#theme');
 
     // Последовательный рендер
     for (const component of components) {
-      $root.insertAdjacentHTML("beforeend", await component);
+      if (component) {
+        $root.insertAdjacentHTML("beforeend", await component);
+      }
     }
 
-    /* Регистрация событий */
-    const $form = document.getElementById("order");
-    if ($form instanceof HTMLFormElement) {
-      $form.addEventListener("submit", (event) => {
-        event.preventDefault();
-      });
-    }
+    setupEventListeners();
+  } catch (error) {
+    console.error("Initialization error:", error);
+  }
+}
 
+/**
+ * @function setupEventListeners
+ * @description Настройка обработчиков событий
+ * @returns {void}
+ */
+
+const setupEventListeners = () => {
+  // Обработка темы
+  if ($themeButton) {
+    $themeButton.addEventListener('click', handleThemeButtonClick);
+  }
+
+  // Обработка чекбокса политики
+  if ($policyCheckbox && $policyIcon) {
+    $policyCheckbox.addEventListener('change', function(event) {
+      const target = /** @type {HTMLInputElement} */ (event.target);
+      const icon = /** @type {HTMLImageElement} */ ($policyIcon);
+      icon.src = target.checked 
+        ? "/assets/icons/check.svg" 
+        : "/assets/icons/unchecked.svg";
+    });
+  }
+
+  // Обработка формы
+  setupFormHandler();
+}
+
+/**
+ * @function setupFormHandler
+ * @description Обработчик формы заказа
+ * @returns {void}
+ */
+
+const setupFormHandler = () => {
+  const $form = /** @type {HTMLFormElement|null} */ (document.getElementById("order"));
+  
+  if (!$form) return;
+
+  $form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    
+    const elements = /** @type {HTMLFormControlsCollection} */ ($form.elements);
+    
     /**
-     * @function handleChange
-     * @description Обработчик изменения состояния чекбокса политики конфиденциальности
-     * @param {Event} event
-     * @returns {void}
+     * @function getValue
+     * @description Получение значения поля формы
+     * @param {string} name
+     * @returns {string}
      */
 
-    const handleChange = (event) => {
-      const target = /** @type {HTMLInputElement} */ (event.target);
-      if (!target?.id || target.id !== "policy-checkbox") return;
+    const getValue = (name) => {
+      const el = /** @type {HTMLInputElement|null} */ (elements.namedItem(name));
+      return el ? el.value.trim() : '';
+    };
 
-      const icon = /** @type {HTMLImageElement | null} */ (
-        document.getElementById("policy-icon")
-      );
-      if (!icon) return;
+    /**
+     * @function getChecked
+     * @description Получение состояния чекбокса
+     * @param {string} name
+     * @returns {boolean}
+     */
 
-      icon.src = target.checked
-        ? "/assets/icons/check.svg"
-        : "/assets/icons/unchecked.svg";
+    const getChecked = (name) => {
+      const el = /** @type {HTMLInputElement|null} */ (elements.namedItem(name));
+      return el ? el.checked : false;
+    };
+
+    // 1. Сбор данных формы
+    /** @type {FormData} */
+    const formData = {
+      name: getValue('name'),
+      tel: getValue('tel'),
+      email: getValue('email'),
+      connection: getValue('connection') || 'phone',
+      policy: getChecked('policy')
+    };
+
+    // 2. Валидация
+    if (!validateForm(formData)) return;
+
+    // 3. Визуальная индикация загрузки
+    const submitButton = /** @type {HTMLInputElement|null} */ (elements.namedItem('submit'));
+    if (submitButton) {
+      const originalButtonText = submitButton.value;
+      submitButton.value = 'Отправка...';
+      submitButton.disabled = true;
+
+      try {
+        // 4. Отправка данных
+        const result = await submitForm(formData);
+
+        // 5. Обработка результата
+        if (result.success) {
+          showSuccessMessage();
+          $form.reset();
+        } else {
+          showErrorMessage(result.error || 'Неизвестная ошибка');
+        }
+      } catch (error) {
+        console.error('Ошибка при отправке формы:', error);
+        showErrorMessage('Ошибка сети. Попробуйте ещё раз.');
+      } finally {
+        // 6. Восстановление кнопки
+        if (submitButton) {
+          submitButton.value = originalButtonText;
+          submitButton.disabled = false;
+        }
+      }
     }
+  });
+}
 
-    $themeButton?.addEventListener('click', handleThemeButtonClick);
+/**
+ * @function validateForm
+ * @description Валидация формы
+ * @param {FormData} formData 
+ * @returns {boolean}
+ */
 
-    // Вешаем обработчик после полной загрузки
-    document.addEventListener("change", handleChange);
-  } catch (error) {
-    console.error("Initialization failed:", error);
+const validateForm = (formData) => {
+  if (!formData.name) {
+    showValidationError('Поле "Имя" обязательно для заполнения', 'name');
+    return false;
   }
-})();
+
+  if (!formData.tel) {
+    showValidationError('Поле "Телефон" обязательно для заполнения', 'tel');
+    return false;
+  }
+
+  if (!formData.policy) {
+    showValidationError('Необходимо согласие с политикой конфиденциальности', 'policy');
+    return false;
+  }
+
+  return true;
+}
+
+/**
+ * @function showValidationError
+ * @description Показать сообщение об ошибке валидации
+ * @param {string} message 
+ * @param {string} fieldName 
+ * @returns {void}
+ */
+
+const showValidationError = (message, fieldName) => {
+  alert(message);
+  const field = document.getElementsByName(fieldName)[0];
+  if (field) field.focus();
+}
+
+/**
+ * @function showSuccessMessage
+ * @description Показать сообщение об успехе
+ * @returns {void}
+ */
+
+const showSuccessMessage = () => {
+  alert('Данные успешно отправлены!');
+}
+
+/**
+ * @function showErrorMessage
+ * @description Показать сообщение об ошибке
+ * @param {string} error 
+ * @returns {void}
+ */
+
+const showErrorMessage = (error) => {
+  console.error('Form submission error:', error);
+  alert(`Ошибка: ${error}`);
+}
+
+// Запуск приложения
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initApp().catch((error) => {
+      console.error("Application initialization failed:", error);
+    });
+  });
+} else {
+  initApp().catch((error) => {
+    console.error("Application initialization failed:", error);
+  });
+}

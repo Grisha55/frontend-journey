@@ -118,6 +118,7 @@ const handlePostRequest = async (req, res) => {
 
   req.on('end', () => {
     try {
+      console.log('Getting data:', body);
       const userData = JSON.parse(body);
       const allData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
       
@@ -127,6 +128,7 @@ const handlePostRequest = async (req, res) => {
       });
 
       fs.writeFileSync(DATA_FILE, JSON.stringify(allData, null, 2));
+      console.log('Data successfully saved');
       
       setCorsHeaders(res);
       res.writeHead(200, { 'Content-Type': 'application/json' });

@@ -48,9 +48,13 @@ const $themeButton = document.querySelector('#theme');
     }
 
     /**
+     * @function handleChange
+     * @description Обработчик изменения состояния чекбокса политики конфиденциальности
      * @param {Event} event
+     * @returns {void}
      */
-    function handleChange(event) {
+
+    const handleChange = (event) => {
       const target = /** @type {HTMLInputElement} */ (event.target);
       if (!target?.id || target.id !== "policy-checkbox") return;
 

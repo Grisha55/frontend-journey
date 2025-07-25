@@ -1,16 +1,15 @@
-import { data } from "./data/data.js";
-import { Download } from "./components/Download/Download.js";
-import { Warranty } from "./components/Warranty/Warranty.js";
-import { Care } from "./components/Care/Care.js";
-import { Cashback } from "./components/Cashback/Cashback.js";
-import { Clients } from "./components/Clients/Clients.js";
-import { Header } from "./components/Header/Header.js";
-import { Footer } from "./components/Footer/Footer.js";
-import { Modal } from "./components/Modal/Modal.js";
-import { Menu } from "./components/Menu/Menu.js";
-import "./helpers/postForm.js";
-import "/server";
+import { data } from './data/data.js';
+import { Download } from './components/Download/Download.js';
+import { Warranty } from './components/Warranty/Warranty.js';
+import { Care } from './components/Care/Care.js';
+import { Cashback } from './components/Cashback/Cashback.js';
+import { Clients } from './components/Clients/Clients.js';
+import { Header } from './components/Header/Header.js';
+import { Footer } from './components/Footer/Footer.js';
+import { Modal } from './components/Modal/Modal.js';
+import { Menu } from './components/Menu/Menu.js';
 import { handleThemeButtonClick } from './handlers.js';
+import './helpers/postForm.js';
 
 const $root = document.getElementById("root");
 const $themeButton = document.querySelector('#theme');
@@ -42,7 +41,11 @@ const $themeButton = document.querySelector('#theme');
 
     /* Регистрация событий */
     const $form = document.getElementById("order");
-    $form?.addEventListener("submit", () => {});
+    if ($form instanceof HTMLFormElement) {
+      $form.addEventListener("submit", (event) => {
+        event.preventDefault();
+      });
+    }
 
     /**
      * @param {Event} event

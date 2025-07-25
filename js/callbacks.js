@@ -1,5 +1,6 @@
   /** 
    * @function callback1
+   * @description Обработчик для получения данных из ответа
    * @param {Response} response
    * @returns {Promise<any>}
   */
@@ -12,6 +13,7 @@
 
   /** 
    * @function callback2
+   * @description Обработчик для получения данных из ответа
    * @param {Promise<any>} resData
    * @returns {Promise<any>}
   */

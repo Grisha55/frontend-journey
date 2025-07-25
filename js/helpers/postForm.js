@@ -16,7 +16,7 @@ const API_ENDPOINT = 'http://127.0.0.1:3000/save-data';
  * Получает значение из элемента формы
  * @param {HTMLFormControlsCollection} elements - Коллекция элементов формы
  * @param {string} name - Имя поля
- * @returns {string|boolean} - Значение поля
+ * @returns {string | boolean} - Значение поля
  */
 function getFormValue(elements, name) {
   const element = elements.namedItem(name);
@@ -24,7 +24,8 @@ function getFormValue(elements, name) {
   if (!element) return '';
   
   // Проверка для чекбокса/радио-кнопки
-  if (element instanceof HTMLInputElement && (element.type === 'checkbox' || element.type === 'radio')) {
+  if (element instanceof HTMLInputElement &&
+    (element.type === 'checkbox' || element.type === 'radio')) {
     return element.checked;
   }
   
@@ -97,18 +98,28 @@ async function sendFormData(data) {
  * @returns {Promise<void>}
  */
 async function handleFormSubmit(form) {
+  const elements = form.elements;
+
   /** @type {UserData} */
   const formData = {
-    name: String(getFormValue(form.elements, 'name')),
-    tel: String(getFormValue(form.elements, 'tel')),
-    email: String(getFormValue(form.elements, 'email')),
-    connection: String(getFormValue(form.elements, 'connection')),
-    policy: Boolean(getFormValue(form.elements, 'policy'))
+    name: String(getFormValue(elements, 'name')),
+    tel: String(getFormValue(elements, 'tel')),
+    email: String(getFormValue(elements, 'email')),
+    connection: String(getFormValue(elements, 'connection')),
+    policy: getFormValue(elements, 'policy') === true
   };
 
-  console.log('Собранные данные:', formData);
+  console.log('Собранные данные:', {
+    ...formData,
+    policyRaw: elements.namedItem('policy')
+  });
 
   if (!validateData(formData)) {
+    const policyElement = elements.namedItem('policy');
+    if (policyElement instanceof HTMLInputElement) {
+      policyElement.focus();
+    }
+    alert('Пожалуйста, исправьте ошибки в форме перед отправкой.');
     return;
   }
 

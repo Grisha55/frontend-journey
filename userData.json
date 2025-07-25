@@ -6,5 +6,13 @@
     "email": "",
     "connection": "",
     "policy": false
+  },
+  {
+    "timestamp": "2025-07-25T15:36:17.600Z",
+    "name": "Gregory",
+    "tel": "8 (919) 624-14-75",
+    "email": "grishavinyar@icloud.com",
+    "connection": "whatsapp",
+    "policy": true
   }
 ]

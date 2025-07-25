@@ -13,12 +13,14 @@ console.log('Модуль обработки формы загружен');
 const API_ENDPOINT = 'http://127.0.0.1:3000/save-data';
 
 /**
- * Получает значение из элемента формы
+ * @function getFormValue
+ * @description Получает значение из элемента формы
  * @param {HTMLFormControlsCollection} elements - Коллекция элементов формы
  * @param {string} name - Имя поля
  * @returns {string | boolean} - Значение поля
  */
-function getFormValue(elements, name) {
+
+const getFormValue = (elements, name) => {
   const element = elements.namedItem(name);
   
   if (!element) return '';
@@ -40,11 +42,13 @@ function getFormValue(elements, name) {
 }
 
 /**
- * Валидирует данные формы
+ * @function validateData
+ * @description Валидирует данные формы
  * @param {UserData} data - Данные для проверки
  * @returns {boolean} - Результат валидации
  */
-function validateData(data) {
+
+const validateData = (data) => {
   if (!data.name) {
     alert('Поле "Имя" обязательно для заполнения');
     return false;
@@ -64,11 +68,13 @@ function validateData(data) {
 }
 
 /**
- * Отправляет данные на сервер
+ * @function sendFormData
+ * @description Отправляет данные на сервер
  * @param {UserData} data - Данные для отправки
  * @returns {Promise<any>}
  */
-async function sendFormData(data) {
+
+const sendFormData = async (data) => {
   try {
     const response = await fetch(API_ENDPOINT, {
       method: 'POST',
@@ -93,11 +99,13 @@ async function sendFormData(data) {
 }
 
 /**
- * Обрабатывает отправку формы
+ * @function handleFormSubmit
+ * @description Обрабатывает отправку формы
  * @param {HTMLFormElement} form - Форма
  * @returns {Promise<void>}
  */
-async function handleFormSubmit(form) {
+
+const handleFormSubmit = async (form) => {
   const elements = form.elements;
 
   /** @type {UserData} */
@@ -134,10 +142,12 @@ async function handleFormSubmit(form) {
 }
 
 /**
- * Инициализирует обработчик формы
+ * @function initForm
+ * @description Инициализирует обработчик формы
  * @returns {void}
  */
-export function initForm() {
+
+export const initForm = () => {
   const form = document.getElementById('order');
   
   if (!(form instanceof HTMLFormElement)) {

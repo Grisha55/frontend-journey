@@ -92,6 +92,7 @@ const serverRequestHandler = (req, res) => {
 
 /**
  * @function handleServerListen
+ * @description Обработчик события запуска сервера
  * @returns {void}
  */
 

@@ -5,9 +5,12 @@ const $app = document.querySelector('#app');
 const $themeButton = document.querySelector('#theme');
 
 /**
- * Обработчик для переключения темы
+ * @function handleThemeButtonClick
+ * @description Обработчик для переключения темы
  * @param {Event} event 
+ * @returns {void}
  */
+
 export const handleThemeButtonClick = (event) => {
       const $themeButton = /** @type {HTMLElement} */ (event.currentTarget);
       const theme = $themeButton.dataset.theme

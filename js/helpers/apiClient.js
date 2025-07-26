@@ -1,43 +1,50 @@
 const API_BASE_URL = 'http://localhost:3000';
 
 /**
- * @function submitForm
- * @description Отправка данных формы на сервер
- * @param {Object} formData - Данные формы
- * @returns {Promise<{success: boolean, error?: string}>}
+ * @typedef {Object} FormData
+ * @property {string} name
+ * @property {string} tel
+ * @property {string} [email]
+ * @property {string} [connection]
+ * @property {boolean} policy
+ */
+
+/**
+ * Отправляет данные формы на сервер.
+ * @param {FormData} formData - Данные формы.
+ * @returns {Promise<{success: boolean, data?: any, error?: string}>}
  */
 
 export const submitForm = async (formData) => {
+  console.log('[API] Отправка данных:', JSON.stringify(formData, null, 2));
+
   try {
     const response = await fetch(`${API_BASE_URL}/save-data`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        userData: formData,
-        timestamp: new Date().toISOString()
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
     });
 
     if (!response.ok) {
-      throw new Error(`Server error: ${response.status}`);
+      const errorText = await response.text();
+      throw new Error(`Ошибка сервера: ${response.status} ${errorText}`);
     }
 
-    return await response.json();
+    const responseData = await response.json();
+    
+    return { success: true, data: responseData };
+
   } catch (error) {
-    console.error('API Error:', error);
+    // Безопасная обработка ошибки с типом 'unknown'
+    let errorMessage = 'Неизвестная ошибка';
     
-    // Безопасное извлечение сообщения об ошибке
-    const errorMessage = error instanceof Error 
-      ? error.message 
-      : typeof error === 'string' 
-        ? error 
-        : 'Unknown error';
-    
-    return {
-      success: false,
-      error: errorMessage
-    };
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    } else if (typeof error === 'string') {
+      errorMessage = error;
+    }
+
+    console.error('[API] Ошибка:', errorMessage);
+    return { success: false, error: errorMessage };
   }
 };

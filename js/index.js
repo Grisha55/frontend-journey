@@ -116,8 +116,8 @@ const setupFormHandler = () => {
      */
 
     const getValue = (name) => {
-      const el = /** @type {HTMLInputElement|null} */ (elements.namedItem(name));
-      return el ? el.value.trim() : '';
+      const element = /** @type {HTMLInputElement|null} */ (elements.namedItem(name));
+      return element ? element.value.trim() : '';
     };
 
     /**
@@ -128,8 +128,8 @@ const setupFormHandler = () => {
      */
 
     const getChecked = (name) => {
-      const el = /** @type {HTMLInputElement|null} */ (elements.namedItem(name));
-      return el ? el.checked : false;
+      const element = /** @type {HTMLInputElement|null} */ (elements.namedItem(name));
+      return element ? element.checked : false;
     };
 
     // 1. Сбор данных формы

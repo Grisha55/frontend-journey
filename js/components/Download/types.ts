@@ -1,7 +1,4 @@
-type Title = {
-  value: string;
-  priority: number;
-};
+import { TitleData } from "../../ui/Title/types";
 
 type Store = {
   name: string;
@@ -15,7 +12,7 @@ type Image = {
 
 export type Download = {
   key: String;
-  title: Title;
+  title: TitleData;
   texts: string[];
   stores: Store[];
   image: Image;

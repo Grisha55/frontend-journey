@@ -1,3 +1,6 @@
+import { Title } from '../../ui/Title/Title.js';
+import { Image } from '../../ui/Image/Image.js';
+
 /**
  * @typedef {import('./types').Download} Download
  */
@@ -25,16 +28,14 @@ export const Download = async () => {
       <section class="download">
         <div class="download__wrapper">
           <div class="download__text-block">
-            <h1 class="download__title">${data.title.value}</h1>
+            ${Title(data.title, "download__title")}
             ${data.texts
               .map((text) => `<p class="download__copy">${text}</p>`)
               .join("")}
             <div class="download__links"></div>
           </div>
           <div class="download__image-block">
-            <img 
-              src="${data.image.source}"
-              alt="${data.image.description}">
+            ${Image(data.image, "download__image")}
           </div>
         </div>
       </section>

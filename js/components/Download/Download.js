@@ -1,5 +1,6 @@
 import { Title } from '../../ui/Title/Title.js';
 import { Image } from '../../ui/Image/Image.js';
+import { Store } from '../../ui/Store/Store.js';
 
 /**
  * @typedef {import('./types').Download} Download
@@ -32,10 +33,12 @@ export const Download = async () => {
             ${data.texts
               .map((text) => `<p class="download__copy">${text}</p>`)
               .join("")}
-            <div class="download__links"></div>
+            <div class="download__links">
+              ${data.stores.map((store) => Store(store, 'download__link')).join('')}
+            </div>
           </div>
           <div class="download__image-block">
-            ${Image(data.image, "download__image")}
+            ${Image(data.image)}
           </div>
         </div>
       </section>

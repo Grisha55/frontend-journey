@@ -1,3 +1,5 @@
+import { Theme } from '../../Theme/Theme.js';
+
 /**
  * @typedef {import('./types.ts').Header} HeaderData;
  */
@@ -44,9 +46,7 @@ export const Header = async () => {
                 ${data.actions.lang.select.options.map ((/** @type {import('./types').LangOption} */ lang) => `<option value="${lang.value}">${lang.text}</option>`).join('')}
               </select>
             </label>
-             <button class="header__theme" type="${data.actions.theme.type}" id="${data.actions.theme.id}">
-              <img src="${data.actions.theme.img.src}" alt="${data.actions.theme.img.alt}">
-             </button>
+             ${Theme("header__theme")}
             <button class="burger" type="${data.actions.burger.type}" id="${data.actions.burger.id}">
               <span></span>
             </button>

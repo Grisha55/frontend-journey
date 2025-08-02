@@ -5,10 +5,12 @@
 /**
  * @function Image
  * @param {ImageData} data
- * @param {string} className
- * @returns {string} HTML 
+ * @returns {string} HTML
  */
 
-export const Image = (data, className) => {
-  return `<img src="${data.source}" alt="${data.description}"></img>`
-};
+export const Image = (data) => `
+  <img
+    src="${data.source}"
+    alt="${data.description}"
+  />
+`;

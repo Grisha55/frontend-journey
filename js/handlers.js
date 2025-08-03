@@ -9,22 +9,25 @@ import { generateMoonIcon } from "./ui/generateMoonIcon.js";
 */
 
 export const onThemeClick = (event) => {
-  const $app = document.getElementById('app');
+  const $root = document.getElementById('root');
   const $themeButton = /** @type {HTMLElement | null} */ (event.currentTarget);
-  if (!$app || !$themeButton) return ;
+  /** @type {NodeListOf<HTMLImageElement>} */
+  const $brandNodes = document.querySelectorAll('[data-id="brand"]');
+  if (!$root || !$themeButton) return;
 
   const currentTheme = $themeButton.dataset.theme;
+  const isDarkTheme = currentTheme === "light";
 
-  if (currentTheme === 'light') {
-    $themeButton.dataset.theme = 'dark';
-    $themeButton.innerHTML = generateSunIcon();
-    $app.classList.remove('light');
-    $app.classList.add('dark');
-  };
-  if (currentTheme === 'dark') {
-    $themeButton.dataset.theme = 'light';
-    $themeButton.innerHTML = generateMoonIcon();
-    $app.classList.remove('dark');
-    $app.classList.add('light');
-  };
+  // Update theme
+  $themeButton.dataset.theme = isDarkTheme ? 'dark' : 'light';
+  $themeButton.innerHTML = isDarkTheme ? generateSunIcon() : generateMoonIcon();
+  $root.dataset.theme = isDarkTheme ? 'dark' : 'light';
+
+  // Update the images
+  $brandNodes.forEach((brand, index) => {
+    const num = index + 1;
+    brand.src = isDarkTheme
+      ? `/assets/brands/dark/${num}.svg`
+      : `/assets/brands/light/${num}.svg`;
+  });
 };

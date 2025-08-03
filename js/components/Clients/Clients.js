@@ -9,8 +9,7 @@
  */
 
 export const Clients = async () => {
-  
-  const API_URL = 'http://localhost:3000/data/clients';
+  const API_URL = "http://localhost:3000/data/clients";
 
   try {
     const response = await fetch(API_URL);
@@ -18,22 +17,24 @@ export const Clients = async () => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     /** @type {Clients} */
-    const data = await response.json()
-    console.log(data);
+    const data = await response.json();
 
-    return /* html */`
+    return /* html */ `
       <section class="clients">
         <div class="clients__wrapper">
-          ${data.clients.map(
-            (client) => `
-              <div class="clients__img">
-                <img src=${client.image.lightSource} alt=${client.image.description}>
-              </div>
-              `
-          ).join('')}
+          ${data.clients.map((client, index) => `
+            <div class="clients__img">
+              <img src="${client.image.lightSource}"
+                   alt="${client.image.description}"
+                   data-id="brand"
+                   data-index="${index}"
+                   data-light-src="${client.image.lightSource}"
+                   data-dark-src="${client.image.darkSource}">
+            </div>
+          `).join("")}
         </div>
       </section>
-    `
+    `;
   } catch (error) {
     console.error(error);
     return '';

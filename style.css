@@ -72,15 +72,26 @@ img {
   font-style: normal;
   font-display: swap;
 }
-.app.light {
+.root[data-theme=light] {
   --color-primary: #000;
-  --border-color-primary: #484848;
   --bg-color-primary: #fff;
+  --bg-color-image: #aaa;
+  --bg-color-footer: #484848;
+  --bg-color-link: #222;
+  --border-color-primary: #484848;
+  --border-color-lang: #000;
+  --border-color-image: #aaa;
 }
-.app.dark {
+
+.root[data-theme=dark] {
   --color-primary: #fff;
-  --border-color-primary: #fff;
   --bg-color-primary: #484848;
+  --bg-color-image: #fff;
+  --bg-color-footer: #484848;
+  --bg-color-link: none;
+  --border-color-primary: #fff;
+  --border-color-lang: #fff;
+  --border-color-image: #484848;
 }
 
 /*column*/

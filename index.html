@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZEN</title>
   <link rel="stylesheet" href="style.css">
-  <div id="root"></div>
   <script type="module" src="js/index.js"></script>
   <style>
     /* Убирает ВСЕ подсветки фокуса на странице */
@@ -23,7 +22,7 @@
   </head>
 
   <body>
-    <div class="app light" id="app">
+    <div class="root" id="root" data-theme="light">
       <!-- Шапка сайта -->
       <header class="header" id="header">
         <div class="header__wrapper">
@@ -139,36 +138,36 @@
         <div class="clients__wrapper">
           <ul class="clients__brands">
             <!-- Brand 1 -->
-            <li class="clients__brand">
-              <img src="assets/brands/light/1.svg" alt="Brand 1">
+            <li class="clients__brand" data-brand="1">
+              <img src="assets/brands/light/1.svg" alt="Brand 1" data-id="brand">
             </li>
             <!-- Brand 2 -->
-            <li class="clients__brand">
-              <img src="assets/brands/light/2.svg" alt="Brand 2">
+            <li class="clients__brand" data-brand="2">
+              <img src="assets/brands/light/2.svg" alt="Brand 2" data-id="brand">
             </li>
             <!-- Brand 3 -->
-            <li class="clients__brand">
-              <img src="assets/brands/light/3.svg" alt="Brand 3">
+            <li class="clients__brand" data-brand="3">
+              <img src="assets/brands/light/3.svg" alt="Brand 3" data-id="brand">
             </li>
             <!-- Brand 4 -->
-            <li class="clients__brand">
-              <img src="assets/brands/light/4.svg" alt="Brand 4">
+            <li class="clients__brand" data-brand="4">
+              <img src="assets/brands/light/4.svg" alt="Brand 4" data-id="brand">
             </li>
             <!-- Brand 5 -->
-            <li class="clients__brand">
-              <img src="assets/brands/light/5.svg" alt="Brand 5">
+            <li class="clients__brand" data-brand="5">
+              <img src="assets/brands/light/5.svg" alt="Brand 5" data-id="brand">
             </li>
             <!-- Brand 6 -->
-            <li class="clients__brand">
-              <img src="assets/brands/light/6.svg" alt="Brand 6">
+            <li class="clients__brand" data-brand="6">
+              <img src="assets/brands/light/6.svg" alt="Brand 6" data-id="brand">
             </li>
             <!-- Brand 7 -->
-            <li class="clients__brand">
-              <img src="assets/brands/light/7.svg" alt="Brand 7">
+            <li class="clients__brand" data-brand="7">
+              <img src="assets/brands/light/7.svg" alt="Brand 7" data-id="brand">
             </li>
             <!-- Brand 8 -->
-            <li class="clients__brand">
-              <img src="assets/brands/light/8.svg" alt="Brand 8">
+            <li class="clients__brand" data-brand="8">
+              <img src="assets/brands/light/8.svg" alt="Brand 8" data-id="brand">
             </li>
           </ul>
         </div>

@@ -1,11 +1,11 @@
-type Image = {
+export type BrandFromApi = {
   lightSource: string;
   darkSource: string;
   description: string;
 };
 
 type Client = {
-  image: Image;
+  image: BrandFromApi;
 };
 
 export type Clients = {

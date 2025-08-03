@@ -46,7 +46,7 @@ export const Header = async () => {
                 ${data.actions.lang.select.options.map ((/** @type {import('./types').LangOption} */ lang) => `<option value="${lang.value}">${lang.text}</option>`).join('')}
               </select>
             </label>
-             ${Theme("header__theme")}
+            ${Theme("header__theme")}
             <button class="burger" type="${data.actions.burger.type}" id="${data.actions.burger.id}">
               <span></span>
             </button>

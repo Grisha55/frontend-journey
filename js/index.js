@@ -17,12 +17,12 @@ import { Header } from './components/Header/Header.js';
 import { Footer } from './components/Footer/Footer.js';
 import { Modal } from './components/Modal/Modal.js';
 import { Menu } from './components/Menu/Menu.js';
-import { handleThemeButtonClick } from './handlers.js';
+import { onThemeClick } from './handlers.js';
 import { submitForm } from './helpers/apiClient.js';
 
 // DOM элементы
 const $root = document.getElementById("root");
-const $themeButton = document.querySelector('#theme');
+const $themeButton = document.getElementById('theme');
 const $policyCheckbox = document.getElementById("policy-checkbox");
 const $policyIcon = document.getElementById("policy-icon");
 
@@ -74,7 +74,7 @@ const initApp = async () => {
 const setupEventListeners = () => {
   // Обработка темы
   if ($themeButton) {
-    $themeButton.addEventListener('click', handleThemeButtonClick);
+    $themeButton.addEventListener('click', onThemeClick);
   }
 
   // Обработка чекбокса политики

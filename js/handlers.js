@@ -1,29 +1,30 @@
 import { generateSunIcon } from "./ui/generateSunIcon.js";
 import { generateMoonIcon } from "./ui/generateMoonIcon.js";
 
-const $app = document.querySelector("#app");
-const $themeButton = document.querySelector("#theme");
-
 /**
- * @function handleThemeButtonClick
- * @description Обработчик для переключения темы
+ * @function onThemeClick
+ * @description In anonymous handler
  * @param {Event} event
  * @returns {void}
- */
+*/
 
-export const handleThemeButtonClick = (event) => {
-  const $themeButton = /** @type {HTMLElement} */ (event.currentTarget);
-  const theme = $themeButton.dataset.theme;
-  if (theme === "light") {
-    $themeButton.dataset.theme = "dark";
+export const onThemeClick = (event) => {
+  const $app = document.getElementById('app');
+  const $themeButton = /** @type {HTMLElement | null} */ (event.currentTarget);
+  if (!$app || !$themeButton) return ;
+
+  const currentTheme = $themeButton.dataset.theme;
+
+  if (currentTheme === 'light') {
+    $themeButton.dataset.theme = 'dark';
     $themeButton.innerHTML = generateSunIcon();
-    $app?.classList.add("dark");
-    $app?.classList.remove("light");
-  }
-  if (theme == "dark") {
-    $themeButton.dataset.theme = "light";
+    $app.classList.remove('light');
+    $app.classList.add('dark');
+  };
+  if (currentTheme === 'dark') {
+    $themeButton.dataset.theme = 'light';
     $themeButton.innerHTML = generateMoonIcon();
-    $app?.classList.add("light");
-    $app?.classList.remove("dark");
-  }
+    $app.classList.remove('dark');
+    $app.classList.add('light');
+  };
 };

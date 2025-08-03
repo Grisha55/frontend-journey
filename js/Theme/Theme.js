@@ -1,4 +1,4 @@
-import { generateMoonIcon } from "../ui/generateMoonIcon";
+import { generateMoonIcon } from "../ui/generateMoonIcon.js";
 
 /**
  * @function Theme
@@ -12,6 +12,6 @@ export const Theme = (className) => `
     id="theme"
     data-theme="light"
   >
-  ${generateMoonIcon()}
+    ${generateMoonIcon()}
   </button>
 `;

@@ -1,5 +1,5 @@
-import { generateAppleBtnIcon } from '../../generateAppleBtnIcon';
-import { generateGoogleBtnIcon } from '../../generateGoogleBtnIcon';
+import { generateAppleBtnIcon } from '../../generateAppleBtnIcon.js';
+import { generateGoogleBtnIcon } from '../../generateGoogleBtnIcon.js';
 
 /**
  * @typedef {import('./types').StoreData} StoreData

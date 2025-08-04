@@ -26,7 +26,7 @@ export const Clients = async () => {
             <div class="clients__img">
               <img src="${client.image.lightSource}"
                    alt="${client.image.description}"
-                   data-id="brand"
+                   data-id="store"
                    data-index="${index}"
                    data-light-src="${client.image.lightSource}"
                    data-dark-src="${client.image.darkSource}">

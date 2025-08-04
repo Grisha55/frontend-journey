@@ -1,12 +1,14 @@
 .root[data-theme="light"] {
   // color:
   --color-primary: #000;
+  --color-footer: #fff;
 
   // bg-color:
   --bg-color-primary: #fff;
   --bg-color-image: #aaa;
   --bg-color-footer: #484848;
   --bg-color-link: #222;
+  --bg-color-burger: #000;
 
   // border-color:
   --border-color-primary: #484848;
@@ -17,12 +19,14 @@
 .root[data-theme="dark"] {
   // color:
   --color-primary: #fff;
+  --color-footer: #fff;
 
   // bg-color:
   --bg-color-primary: #484848;
   --bg-color-image: #fff;
   --bg-color-footer: #484848;
   --bg-color-link: none;
+  --bg-color-burger: #fff;
 
   // border-color:
   --border-color-primary: #fff;

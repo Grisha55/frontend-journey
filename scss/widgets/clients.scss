@@ -12,13 +12,13 @@ $gap: 30px;
     gap: $gap;
   }
 
-  &__brands {
+  &__stores {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: $gap;
   }
 
-  &__brand {
+  &__store {
     display: block;
     margin-left: auto;
     margin-right: auto;

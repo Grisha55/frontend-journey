@@ -176,36 +176,36 @@ export const data = {
       key: "clients",
       images: [
         {
-          source: "/assets/brands/1.svg",
-          description: "brand 1",
+          source: "/assets/stores/1.svg",
+          description: "store 1",
         },
         {
-          source: "/assets/brands/2.svg",
-          description: "brand 2",
+          source: "/assets/stores/2.svg",
+          description: "store 2",
         },
         {
-          source: "/assets/brands/3.svg",
-          description: "brand 3",
+          source: "/assets/stores/3.svg",
+          description: "store 3",
         },
         {
-          source: "/assets/brands/4.svg",
-          description: "brand 4",
+          source: "/assets/stores/4.svg",
+          description: "store 4",
         },
         {
-          source: "/assets/brands/5.svg",
-          description: "brand 5",
+          source: "/assets/stores/5.svg",
+          description: "store 5",
         },
         {
-          source: "/assets/brands/6.svg",
-          description: "brand 6",
+          source: "/assets/stores/6.svg",
+          description: "store 6",
         },
         {
-          source: "/assets/brands/7.svg",
-          description: "brand 7",
+          source: "/assets/stores/7.svg",
+          description: "store 7",
         },
         {
-          source: "/assets/brands/8.svg",
-          description: "brand 8",
+          source: "/assets/stores/8.svg",
+          description: "store 8",
         },
       ],
     },
@@ -215,58 +215,58 @@ export const data = {
     clients: [
       {
         image: {
-          sourceLight: '/assets/brands/light/1.svg',
-          sourceDark: '/assets/brands/dark/1.svg',
-          description: 'brand 1'
+          sourceLight: '/assets/stores/light/1.svg',
+          sourceDark: '/assets/stores/dark/1.svg',
+          description: 'store 1'
         },
       },
       {
         image: {
-          sourceLight: '/assets/brands/light/2.svg',
-          sourceDark: '/assets/brands/dark/2.svg',
-          description: 'brand 2'
+          sourceLight: '/assets/stores/light/2.svg',
+          sourceDark: '/assets/stores/dark/2.svg',
+          description: 'store 2'
         },
       },
       {
         image: {
-          sourceLight: '/assets/brands/light/3.svg',
-          sourceDark: '/assets/brands/dark/3.svg',
-          description: 'brand 3'
+          sourceLight: '/assets/stores/light/3.svg',
+          sourceDark: '/assets/stores/dark/3.svg',
+          description: 'store 3'
         },
       },
       {
         image: {
-          sourceLight: '/assets/brands/light/4.svg',
-          sourceDark: '/assets/brands/dark/4.svg',
-          description: 'brand 4'
+          sourceLight: '/assets/stores/light/4.svg',
+          sourceDark: '/assets/stores/dark/4.svg',
+          description: 'store 4'
         },
       },
       {
         image: {
-          sourceLight: '/assets/brands/light/5.svg',
-          sourceDark: '/assets/brands/dark/5.svg',
-          description: 'brand 5'
+          sourceLight: '/assets/stores/light/5.svg',
+          sourceDark: '/assets/stores/dark/5.svg',
+          description: 'store 5'
         },
       },
       {
         image: {
-          sourceLight: '/assets/brands/light/6.svg',
-          sourceDark: '/assets/brands/dark/6.svg',
-          description: 'brand 6'
+          sourceLight: '/assets/stores/light/6.svg',
+          sourceDark: '/assets/stores/dark/6.svg',
+          description: 'store 6'
         },
       },
       {
         image: {
-          sourceLight: '/assets/brands/light/7.svg',
-          sourceDark: '/assets/brands/dark/7.svg',
-          description: 'brand 7'
+          sourceLight: '/assets/stores/light/7.svg',
+          sourceDark: '/assets/stores/dark/7.svg',
+          description: 'store 7'
         },
       },
       {
         image: {
-          sourceLight: '/assets/brands/light/8.svg',
-          sourceDark: '/assets/brands/dark/8.svg',
-          description: 'brand 8'
+          sourceLight: '/assets/stores/light/8.svg',
+          sourceDark: '/assets/stores/dark/8.svg',
+          description: 'store 8'
         },
       },
     ],

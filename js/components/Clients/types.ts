@@ -1,11 +1,11 @@
-export type BrandFromApi = {
+export type StoreFromApi = {
   lightSource: string;
   darkSource: string;
   description: string;
 };
 
 type Client = {
-  image: BrandFromApi;
+  image: StoreFromApi;
 };
 
 export type Clients = {

@@ -12,8 +12,8 @@ $spacing-small: 10px;
 
 .footer {
   padding: $spacing-large 15px;
-  color: #fff;
-  background: #484848;
+  color: var(--color-footer);
+  background: var(--bg-color-footer);
 
   &__wrapper {
     display: grid;

@@ -74,10 +74,12 @@ img {
 }
 .root[data-theme=light] {
   --color-primary: #000;
+  --color-footer: #fff;
   --bg-color-primary: #fff;
   --bg-color-image: #aaa;
   --bg-color-footer: #484848;
   --bg-color-link: #222;
+  --bg-color-burger: #000;
   --border-color-primary: #484848;
   --border-color-lang: #000;
   --border-color-image: #aaa;
@@ -85,10 +87,12 @@ img {
 
 .root[data-theme=dark] {
   --color-primary: #fff;
+  --color-footer: #fff;
   --bg-color-primary: #484848;
   --bg-color-image: #fff;
   --bg-color-footer: #484848;
   --bg-color-link: none;
+  --bg-color-burger: #fff;
   --border-color-primary: #fff;
   --border-color-lang: #fff;
   --border-color-image: #484848;
@@ -113,7 +117,7 @@ img {
 
 /*menu*/
 .menu {
-  background: var(--color-primary);
+  background: var(--bg-color-primary);
   position: fixed;
   top: 51px;
   left: 0;
@@ -170,7 +174,7 @@ img {
   display: block;
   width: 100%;
   height: 2px;
-  background: var(--color-primary);
+  background: var(--bg-color-burger);
   position: absolute;
   left: 0;
 }
@@ -181,7 +185,7 @@ img {
   display: block;
   width: 100%;
   height: 2px;
-  background: var(--color-primary);
+  background: var(--bg-color-burger);
 }
 .burger::after {
   bottom: 0;
@@ -358,7 +362,7 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  border-bottom: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--border-color-primary);
   background-color: var(--bg-color-primary);
 }
 .header__wrapper {
@@ -392,20 +396,19 @@ img {
   align-items: center;
   width: 50px;
   height: 30px;
-  border: 1px solid #000;
+  border: 1px solid var(--border-color-lang);
   border-radius: 4px;
   overflow: hidden;
   color: var(--color-primary);
 }
 .header__lang img {
   position: absolute;
-  z-index: -1;
   top: 50%;
   right: 8px;
   transform: translateY(-50%);
   width: 9px;
   height: 6px;
-  color: #fff;
+  color: var(--color-primary);
 }
 .header__lang select {
   padding-left: 8px;
@@ -431,18 +434,6 @@ img {
   gap: 30px;
   background-color: var(--bg-color-primary);
 }
-.download__image-block {
-  border: 1px solid var(--color-primary);
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #fff;
-}
-.download__image-block img {
-  display: block;
-  padding: 10px 28px;
-  box-sizing: border-box;
-  object-fit: contain;
-}
 .download__title {
   font-size: 30px;
   font-weight: 700;
@@ -461,12 +452,20 @@ img {
   background-color: var(--bg-color-primary);
   border-color: var(--color-primary);
 }
+.download__image-block {
+  height: 72vw;
+  max-width: 100%;
+  border-bottom: 1px solid var(--border-color-image);
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--bg-color-image);
+}
 
 /*footer*/
 .footer {
   padding: 30px 15px;
-  color: #fff;
-  background: #484848;
+  color: var(--color-footer);
+  background: var(--bg-color-footer);
 }
 .footer__wrapper {
   display: grid;
@@ -508,19 +507,6 @@ img {
   gap: 30px;
   background-color: var(--bg-color-primary);
 }
-.warranty__image-block {
-  height: 72vw;
-  border: 1px solid var(--color-primary);
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #fff;
-}
-.warranty__image-block img {
-  display: block;
-  padding: 10px 28px;
-  box-sizing: border-box;
-  object-fit: contain;
-}
 .warranty__title {
   font-size: 26px;
   font-weight: 700;
@@ -534,6 +520,14 @@ img {
 }
 .warranty__copy:first-of-type {
   margin-top: 20px;
+}
+.warranty__image-block {
+  height: 72vw;
+  max-width: 100%;
+  border-bottom: 1px solid var(--border-color-image);
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--bg-color-image);
 }
 
 /*cashback*/
@@ -562,7 +556,7 @@ img {
   width: 100%;
   height: 50px;
   border-radius: 30px;
-  border: 1px solid #aaa;
+  border: 1px solid var(--border-color-primary);
   color: var(--color-primary);
 }
 
@@ -592,10 +586,10 @@ img {
 }
 .care__image-block {
   height: 72vw;
-  border: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--border-color-image);
   border-radius: 20px;
   overflow: hidden;
-  background-color: #f9f9f9;
+  background-color: var(--bg-color-image);
 }
 
 /*clients*/
@@ -616,7 +610,7 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  color: #fff;
+  color: var(--bg-color-image);
 }
 
 .modal {
@@ -642,7 +636,7 @@ img {
   width: 100%;
   max-width: 500px;
   padding: 30px 10px 20px 10px;
-  background: #fff;
+  background: var(--bg-color-primary);
   border-radius: 5px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   margin: 0 20px;

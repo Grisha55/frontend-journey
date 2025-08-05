@@ -13,6 +13,7 @@ export const onThemeClick = (event) => {
   const $themeButton = /** @type {HTMLElement | null} */ (event.currentTarget);
   /** @type {NodeListOf<HTMLImageElement>} */
   const $stores = document.querySelectorAll('[data-id="store"]');
+  const logoElement = document.getElementById('logo'); 
   if (!$root || !$themeButton) return;
 
   const currentTheme = $themeButton.dataset.theme;
@@ -30,4 +31,12 @@ export const onThemeClick = (event) => {
       ? `/assets/stores/dark/${num}.svg`
       : `/assets/stores/light/${num}.svg`;
   });
+
+  // Update developer logo
+  if (logoElement instanceof HTMLImageElement) {
+    const $developerLogo = logoElement;
+    $developerLogo.src = isDarkTheme ? '/assets/icons/logo_dark.svg' : '/assets/icons/logo_light.svg';
+  } else {
+    console.error('Element is not image or non founded');
+  }
 };

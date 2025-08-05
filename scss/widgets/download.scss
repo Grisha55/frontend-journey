@@ -1,49 +1,128 @@
 /*download*/
-
-// Variables
-$gap-large: 30px;
-$gap-small: 15px;
-
-// Mixin for flex-container with columns and gap
-@mixin flex-column($gap) {
-  display: flex;
-  flex-direction: column;
-  gap: $gap;
-  background-color: var(--bg-color-primary);
-}
-
 .download {
-  padding: 30px 15px;
-  background-color: var(--bg-color-primary);
+  padding: $padding-section-xs;
 
   &__wrapper {
-    @include flex-column($gap-large);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
+
+  // &__text-block {}
 
   &__title {
     font-size: 30px;
     font-weight: 700;
-    color: var(--color-primary);
   }
 
   &__copy {
-    color: var(--color-primary);
+    font-size: 14px;
     margin-top: 20px;
   }
 
   &__links {
     margin-top: 20px;
     width: fit-content;
-    @include flex-column($gap-small);
-    border-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__link {
+    display: block;
+    width: 150px;
+    height: 44px;
+
+    & svg {
+      fill: var(--bg-color-link);
+    }
   }
 
   &__image-block {
-    height: 72vw;
-    max-width: 100%;
-    border-bottom: 1px solid var(--border-color-image);
+    aspect-ratio: 9 / 7;
+    border: 1px solid var(--border-color-image);
     border-radius: 20px;
     overflow: hidden;
-    background-color: var(--bg-color-image);
+
+    & img {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .download {
+    padding: $padding-section-sm;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .download {
+    padding: $padding-section-md;
+
+    &__wrapper {
+      flex-direction: row;
+    }
+
+    &__text-block {
+      flex: 1;
+    }
+
+    &__title {
+      font-size: 36px;
+    }
+
+    &__links {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    &__image-block {
+      flex: 1;
+      height: auto;
+      aspect-ratio: 33/26;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .download {
+    padding: $padding-section-lg;
+
+    &__wrapper {
+      gap: 40px;
+    }
+
+    &__text-block {
+      align-self: center;
+    }
+
+    &__title {
+      font-size: 42px;
+    }
+
+    &__copy {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .download {
+    padding: $padding-section-xl;
+
+    &__wrapper {
+      gap: 110px;
+    }
+
+    &__title {
+      font-size: 56px;
+    }
+
+    &__copy {
+      font-size: 20px;
+    }
   }
 }

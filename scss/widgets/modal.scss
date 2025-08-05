@@ -1,65 +1,66 @@
-// Variables
-$modal-padding: 30px 10px 20px 10px;
-$modal-gap: 20px;
-$modal-radius: 5px;
-
-// Mixins
-@mixin center-flex {
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
+/*modal*/
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  opacity: 1;
-  // visibility: hidden;
-  transition: all 0.3s ease;
-  @include center-flex;
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
 
   &.active {
-    opacity: 1;
-    visibility: visible;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__body {
     position: relative;
-    width: 100%;
-    max-width: 500px;
-    padding: $modal-padding;
+    width: calc(100vw - 15px*2);
+    padding: 30px 20px;
+    display: grid;
+    gap: 20px;
+    border-radius: 5px;
     background: var(--bg-color-primary);
-    border-radius: $modal-radius;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    margin: 0 20px;
   }
 
   &__close {
+    width: 34px;
+    height: 34px;
     position: absolute;
-    top: -30px;
-    right: 0px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
+    top: -34px;
+    right: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    img {
-      width: 20px;
-      height: 20px;
+    & img {
+      flex-basis: content;
     }
   }
 
   &__title {
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 10px;
-    text-align: left;
-    padding: 10px 10px 0 10px;
-    color: #222;
   }
 }
+
+@media (min-width: $breakpoint-sm) {
+  .modal {
+    &__body {
+      padding: $padding-section-sm;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .modal {
+    &__body {
+      width: 50vw;
+      max-width: 600px;
+      padding: $padding-section-md;
+    }
+  }
+}
+

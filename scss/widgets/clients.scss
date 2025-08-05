@@ -1,27 +1,67 @@
 /*clients*/
-
-// Variables
-$gap: 30px;
-
 .clients {
   padding: 30px 15px;
-  background-color: var(--bg-color-primary);
 
-  &__wrapper {
+  /* &__wrapper {} */
+
+  &__brands {
     display: grid;
-    gap: $gap;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    place-items: center;
+    color: var(--color-primary);
   }
 
-  &__stores {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: $gap;
+  &__brand svg {
+    width: 130px;
   }
+}
 
-  &__store {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--bg-color-image);
+@media (min-width: $breakpoint-sm) {
+  .clients {
+    padding: $padding-section-sm;
+
+    &__brands {
+      column-gap: 45px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .clients {
+    padding: $padding-section-md;
+
+    &__brands {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__brand svg {
+      width: 150px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .clients {
+    padding: $padding-section-lg;
+
+    &__brands {
+      gap: 42px;
+    }
+
+    &__brand svg {
+      width: 200px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .clients {
+    padding: $padding-section-xl;
+
+    &__brands {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 30px;
+    }
   }
 }

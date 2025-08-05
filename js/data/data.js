@@ -10,7 +10,7 @@ export const data = {
       type: "button",
       id: "logo",
       img: {
-        src: "assets/icons/logo.svg",
+        src: "assets/icons/logo_light.svg",
         alt: "ZEN",
       },
     },

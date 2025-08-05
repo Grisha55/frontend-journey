@@ -13,7 +13,8 @@ export const onThemeClick = (event) => {
   const $themeButton = /** @type {HTMLElement | null} */ (event.currentTarget);
   /** @type {NodeListOf<HTMLImageElement>} */
   const $stores = document.querySelectorAll('[data-id="store"]');
-  const logoElement = document.getElementById('developerLogo'); 
+  const developerLogoElement = document.getElementById('developerLogo');
+  const arrowLangElement = document.getElementById('arrowLang');
   if (!$root || !$themeButton) return;
 
   const currentTheme = $themeButton.dataset.theme;
@@ -33,12 +34,20 @@ export const onThemeClick = (event) => {
   });
 
   // Update developer logo
-  if (logoElement instanceof HTMLImageElement) {
-    const $developerLogo = logoElement;
+  if (developerLogoElement instanceof HTMLImageElement) {
+    const $developerLogo = developerLogoElement;
     $developerLogo.src = isDarkTheme 
       ? '/assets/icons/logo_dark.svg'
       : '/assets/icons/logo_light.svg';
   } else {
     console.error('Element is not image or non founded');
-  }
+  };
+
+  // Update arrowLang image
+  if (arrowLangElement instanceof HTMLImageElement) {
+    const $arrowImage = arrowLangElement;
+    $arrowImage.src = isDarkTheme
+      ? '/assets/icons/arrow_light.svg'
+      : '/assets/icons/arrow_dark.svg';
+  };
 };

@@ -3,19 +3,36 @@
   &__title {
     font-size: 16px;
     font-weight: 700;
+    margin-bottom: 20px;
   }
 
   &__list {
-    margin-top: 20px;
+    display: grid;
+    gap: 10px;
   }
 
   &__item {
-    margin-top: 10px;
     font-size: 14px;
-  }
 
-  img {
-    width: 40px;
-    height: 40px;
+    & img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .column {
+    &__title {
+      font-size: 20px;
+    }
+
+    &__list {
+      gap: 15px;
+    }
+
+    &__item {
+      font-size: 16px;
+    }
   }
 }

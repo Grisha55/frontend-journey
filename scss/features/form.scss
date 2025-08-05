@@ -1,218 +1,80 @@
-// =============================================
-// Form Variables
-// =============================================
-$primary-color: #3498db;
-$primary-hover: #2980b9;
-$error-color: #e74c3c;
-$border-color: #ddd;
-$placeholder-color: #AAAAAA;
-$checkbox-checked: #00a1ff;
-$link-underline: #484848;
-$white: #ffffff;
-
-// Layout
-$form-gap: 20px;
-$input-padding: 0px 0 4px 0;
-$border-radius: 0;
-$transition: 0.2s ease;
-$checkbox-size: 14px;
-
-// =============================================
-// Form Container
-// =============================================
+/*form*/
 .form {
-  gap: $form-gap;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 0 20px;
   display: grid;
-  font-weight: 400;
+  gap: 15px;
 
-  // Стиль для поля Connection
-  .connection-field {
-    select {
-      color: $placeholder-color;
-
-      select option[value=""][disabled] {
-        display: none;
-      }
-
-      option {
-        color: #000;
-      }
-
-      &:invalid,
-      &:focus {
-        color: $link-underline;
-      }
-
-      &:invalid {
-        color: $placeholder-color;
-      }
-
-    }
-  }
-
-  // ===========================================
-  // Form Fields (только нижнее подчеркивание)
-  // ===========================================
   &__field {
-    font-weight: 400;
-    padding-top: 8px;
-    display: grid;
+    height: 30px;
     position: relative;
-    outline: none !important;
-    box-shadow: none !important;
+    display: block;
+    border-bottom: 1px solid #aaa;
 
-    input,
-    select {
+    & input {
+      display: block;
       width: 100%;
-      padding: $input-padding;
-      border: none;
-      border-bottom: 2px solid $border-color;
+      padding: 5px;
+    }
+
+    & input::placeholder {
       font-size: 16px;
-      transition: all $transition;
-      background-color: transparent;
-      appearance: none;
-      
-      &:focus {
-        border-bottom-color: $border-color;
-        outline: none;
-      }
-
-      &::placeholder {
-        color: $placeholder-color;
-        font-weight: 400;
-        font-family: 'Nunito';
-      }
+      color: #aaa;
     }
 
-    select {
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right center;
-      background-size: 14px;
-      padding-right: 25px;
-      cursor: pointer;
-    }
-
-    &.error {
-      input,
-      select {
-        border-bottom-color: $error-color;
-      }
-    }
-
-    
-  }
-
-  // ===========================================
-  // Custom Checkbox (с переключением изображения)
-  // ===========================================
-  &__checkbox {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin: 0 0 0 0;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-
-    .checkbox-input {
+    & span {
+      font-size: 16px;
+      left: 5px;
+      bottom: 4px;
       position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-
-      &:focus-visible + .checkbox-custom {
-        outline: 2px solid $primary-color;
-      }
+      color: #aaa;
+      z-index: 0;
     }
 
-    .checkbox-custom {
-      width: $checkbox-size;
-      height: $checkbox-size;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      img {
-        width: 100%;
-        height: 100%;
-        transition: all $transition;
-      }
-    }
-
-    .policy-link {
-      color: inherit;
-      text-decoration: none;
+    & select {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+      z-index: 1;
       position: relative;
-      font-size: 14px;
-      line-height: 1;
+    }
 
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 1px;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background-color: $placeholder-color;
-        transition: background-color $transition;
-      }
-
-      &:hover::after {
-        background-color: $primary-color;
-      }
+    & svg {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 9px;
+      height: 6px;
+      pointer-events: none;
     }
   }
 
-  // ===========================================
-  // Form Button
-  // ===========================================
-  &__submit {
-    padding: 12px 24px;
-    background-color: $white;
-    color: $link-underline;
-    border: 1px solid $link-underline;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all $transition;
-    margin-top: 20px; // Расстояние от чекбокса
-
-    &:hover {
-      background-color: rgba($white, 0.1);
-      color: $link-underline;
-    }
-
-    &:active {
-      transform: translateY(1px);
-    }
-  }
-}
-
-// =============================================
-// Responsive Adjustments
-// =============================================
-@media (max-width: 600px) {
-  .form {
-    padding: 15px;
+  &__policy {
+    display: flex;
     gap: 15px;
-    
-    &__checkbox {
-      margin: 0;
-      
-      .checkbox-custom {
-        width: 14px;
-        height: 14px;
-      }
+    align-items: center;
+    text-decoration: underline;
+
+    & input::before {
+      display: block;
+      content: '';
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      border: 1px solid #aaa;
     }
 
-    &__submit {
-      margin-top: 5px;
-      padding: 12px 20px;
+    & input:checked::before {
+      background-image: url('../assets/icons/check.svg');
+      background-position: center;
+      border-color: #00a1ff;
     }
+  }
+
+  &__submit {
+    margin-top: 5px;
+    padding-block: 12px;
+    border: 1px solid var(--border-color-button);
+    border-radius: 30px;
   }
 }

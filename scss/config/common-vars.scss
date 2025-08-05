@@ -1,19 +1,13 @@
-// // Border-color:
-// $border-color-primary: #aaa;
-// $border-color-secondary: #000;
+/*breakpoint*/
+$breakpoint-xs: 320px;
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1152px;
+$breakpoint-xl: 1440px;
 
-// // Background-color:
-// $bg-primary: #fff;
-// $bg-footer: #484848;
-// $bg-modal: rgba(0, 0, 0, 0.5);
-
-// // Text-color:
-// $text-footer-color: #fff;
-
-// Gap:
-$gap-large: 30px;
-$gap-small: 15px;
-
-// Border-radius:
-$border-radius-primary: 20px;
-$border-radius-secondary: 4px;
+/*paddings*/
+$padding-section-xs: 30px 15px;
+$padding-section-sm: 30px 10vw;
+$padding-section-md: 30px 40px;
+$padding-section-lg: 40px 110px;
+$padding-section-xl: 50px 165px;

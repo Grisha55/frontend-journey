@@ -1,47 +1,36 @@
 /*header*/
-
-// Variables
-$header-height: 50px;
-$border-radius: 4px;
-$spacing: 15px;
-$gap: 20px;
-
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  border-bottom: 1px solid var(--border-color-primary);
-  background-color: var(--bg-color-primary);
+  color: var(--color-primary);
+  background: var(--bg-color-primary);
+  border-bottom: 1px solid var(--border-color-default);
 
   &__wrapper {
-    height: $header-height;
-    padding: 0 $spacing;
+    height: 50px;
+    padding: 0 15px;
     display: flex;
     align-items: center;
-    background-color: var(--bg-color-primary);
   }
 
   &__logo {
     width: 77px;
     height: 30px;
-    color: var(--color-primary);
-
-    img {
-      height: 100%;
-    }
   }
 
   &__logo svg {
     height: 100%;
-    fill: currentColor;
   }
+
+  /* &__nav {} */
 
   &__actions {
     margin-left: auto;
     display: flex;
     align-items: center;
-    gap: $gap;
+    gap: 20px;
   }
 
   &__lang {
@@ -51,32 +40,82 @@ $gap: 20px;
     width: 50px;
     height: 30px;
     border: 1px solid var(--border-color-lang);
-    border-radius: $border-radius;
+    border-radius: 4px;
     overflow: hidden;
+  }
+
+  &__lang svg {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 9px;
+    height: 6px;
+    pointer-events: none;
+  }
+
+  &__lang select {
+    padding-left: 8px;
+    width: 100%;
+    height: 100%;
     color: var(--color-primary);
-
-    img {
-      position: absolute;
-      top: 50%;
-      right: 8px;
-      transform: translateY(-50%);
-      width: 9px;
-      height: 6px;
-      color: var(--color-primary);
-    }
-
-    select {
-      padding-left: 8px;
-      height: 100%;
-      width: 100%;
-      color: var(--color-primary);
-      background-color: var(--bg-color-primary);
-    }
+    background: var(--bg-color-primary);
   }
 
   &__theme {
     width: 26px;
     height: 26px;
-    color: var(--color-primary);
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .header {
+    &__wrapper {
+      padding: 0 40px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .header {
+    &__wrapper {
+      padding: 0 40px;
+    }
+
+    &__actions {
+      gap: 30px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .header {
+    &__wrapper {
+      height: 78px;
+      padding: 0 110px;
+    }
+
+    &__logo {
+      margin-right: auto;
+    }
+
+    &__actions {
+      gap: 40px;
+      margin-left: 40px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .header {
+    &__wrapper {
+      height: 78px;
+      padding: 0 165px;
+    }
+
+    &__actions {
+      gap: 50px;
+      margin-left: 50px;
+    }
   }
 }

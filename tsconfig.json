@@ -1,15 +1,30 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "noEmit": true,
+    "checkJs": true,
     "target": "ES2022",
     "module": "ES2022",
-    "types": ["node"],
-    "moduleResolution": "node",
-    "allowJs": true,
-    "checkJs": true,
-    "noEmit": true,
-    "strict": true,
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
     "esModuleInterop": true,
-    "lib": ["ES2022", "DOM"]
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "strict": true,
+    "alwaysStrict": true,
+    "allowUnreachableCode": true,
+    "allowUnusedLabels": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "resolveJsonModule": false,
+    "declaration": true,
   },
-  "include": ["js"]
+  "include": [
+    "js",
+  ]
 }

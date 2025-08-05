@@ -1,28 +1,26 @@
 /*global*/
-
-// Variables
-$body-padding-top: 50px;
-$base-font-size: 14px;
-$input-font-size: 16px;
-$font-family: 'Nunito', sans-serif;
-$font-weight: 400;
-
-// Основные стили body
 body {
-  padding-top: $body-padding-top;
-  font: {
-    family: $font-family;
-    size: $base-font-size;
-    weight: $font-weight;
-  }
+  padding-top: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
 }
 
-// Стили для input
+.root {
+  color: var(--color-primary);
+  background: var(--bg-color-primary);
+}
+
 input {
-  font-size: $input-font-size;
+  font: inherit;
+  font-size: 16px;
 }
 
-// Стили для изображений
 img {
   width: 100%;
+}
+
+@media (min-width: $breakpoint-lg) {
+  body {
+    padding-top: 78px;
+  }
 }

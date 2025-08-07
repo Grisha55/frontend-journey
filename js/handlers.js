@@ -104,3 +104,22 @@ export const handleLangChange = (event) => {
   localStorage.setItem('currentLang', currentLang);
   renderApp(currentLang);
 };
+
+/**
+ * @function handleSelectConnection
+ * @param {Event} event
+ * @return {void}
+ */
+
+export const handleSelectConnection = (event) => {
+  const select = /** @type {HTMLSelectElement} */ (event?.target);
+  if (!select) return;
+  const placeholder = select.closest('.form__field')?.querySelector('span');
+  if (!placeholder) return;
+
+  if (select.value) {
+    placeholder.style.opacity = '0';
+  } else {
+    placeholder.style.opacity = '1';
+  }
+};

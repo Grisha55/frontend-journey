@@ -5,6 +5,7 @@ import { handleOrderCloseClick } from './handlers.js';
 import { onThemeClick } from './handlers.js';
 import { toggleNavigation } from './utils/index.js';
 import { handleLangChange } from './handlers.js';
+import { handleSelectConnection } from './handlers.js';
 
 /**
  * @typedef {import('./types').AppDataFromAPI} AppDataFromAPI
@@ -37,4 +38,7 @@ export const addHandlers = (dataFromAPI) => {
 
   const $lang = document.querySelector('#lang');
   $lang?.addEventListener('change', handleLangChange);
+
+  const $selectConnection = document.querySelector('#connection');
+  $selectConnection?.addEventListener('change', handleSelectConnection);
 };

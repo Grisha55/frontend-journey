@@ -230,6 +230,10 @@ img {
   position: absolute;
   color: #aaa;
   z-index: 0;
+  transition: opacity 0.3s ease;
+}
+.form__field span.--hidden {
+  opacity: 0;
 }
 .form__field select {
   display: block;

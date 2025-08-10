@@ -19,6 +19,7 @@ export const renderApp = async (lang) => {
   const data = await getData(lang);
   if (!data) {
     $root.innerHTML = '<p>Что-то пошло не так. Повторите попытку позже.</p>';
+    alert('Что-то пошло не так. Повторите попытку позже!');
     return;
   }
 
